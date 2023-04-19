@@ -133,11 +133,11 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 
-\usepackage[ruled]{algorithm2e}
-\SetKwProg{Fn}{function}{}{}
-\SetKwFor{For}{for (}{) $\lbrace$}{$\rbrace$}
+%\usepackage[ruled]{algorithm2e}
+%\SetKwProg{Fn}{function}{}{}
+%\SetKwFor{For}{for (}{) $\lbrace$}{$\rbrace$}
 
-\DeclareMathOperator*{\argmin}{argmin}
+%\DeclareMathOperator*{\argmin}{argmin}
 
 %\usepackage{algorithm}
 %\usepackage[noend]{algpseudocode}
