@@ -1,0 +1,143 @@
+\begin{thebibliography}{}
+
+\bibitem[Bae et~al., 2008]{bae2008development}
+Bae, C.-Y., Kang, Y.~G., Kim, S., Cho, C., Kang, H.~C., Yu, B.~Y., Lee, S.-W., Cho, K.~H., Lee, D.~C., Lee, K., et~al. (2008).
+\newblock Development of models for predicting biological age (ba) with physical, biochemical, and hormonal parameters.
+\newblock {\em Archives of gerontology and geriatrics}, 47(2):253--265.
+
+\bibitem[Bonaccio et~al., 2019]{bonaccio2019impact}
+Bonaccio, M., Di~Castelnuovo, A., Costanzo, S., De~Curtis, A., Persichillo, M., Cerletti, C., Donati, M., de~Gaetano, G., Iacoviello, L., and sani Study~Investigators, M. (2019).
+\newblock Impact of combined healthy lifestyle factors on survival in an adult general population and in high-risk groups: prospective results from the moli-sani study.
+\newblock {\em Journal of internal medicine}, 286(2):207--220.
+
+\bibitem[Br{\"u}{\"u}nsgaard and Pedersen, 2003]{bruunsgaard2003age}
+Br{\"u}{\"u}nsgaard, H. and Pedersen, B.~K. (2003).
+\newblock Age-related inflammatory cytokines and disease.
+\newblock {\em Immunology and Allergy Clinics}, 23(1):15--39.
+
+\bibitem[Epel et~al., 2009]{epel2009rate}
+Epel, E.~S., Merkin, S.~S., Cawthon, R., Blackburn, E.~H., Adler, N.~E., Pletcher, M.~J., and Seeman, T.~E. (2009).
+\newblock The rate of leukocyte telomere shortening predicts mortality from cardiovascular disease in elderly men.
+\newblock {\em Aging (Albany NY)}, 1(1):81.
+
+\bibitem[Farrell et~al., 2022]{farrell2022interpretable}
+Farrell, S., Mitnitski, A., Rockwood, K., and Rutenberg, A.~D. (2022).
+\newblock Interpretable machine learning for high-dimensional trajectories of aging health.
+\newblock {\em PLOS Computational Biology}, 18(1):e1009746.
+
+\bibitem[Farrell et~al., 2021]{farrell2021potential}
+Farrell, S., Stubbings, G., Rockwood, K., Mitnitski, A., and Rutenberg, A. (2021).
+\newblock The potential for complex computational models of aging.
+\newblock {\em Mechanisms of Ageing and Development}, 193:111403.
+
+\bibitem[Global burden of disease, 2019]{GBD}
+Global burden of disease (2019).
+\newblock Global burden of disease.
+\newblock \url{https://www.thelancet.com/gbd}.
+
+\bibitem[Goldberg and Dixit, 2015]{goldberg2015drivers}
+Goldberg, E.~L. and Dixit, V.~D. (2015).
+\newblock Drivers of age-related inflammation and strategies for healthspan extension.
+\newblock {\em Immunological reviews}, 265(1):63--74.
+
+\bibitem[Horvath, 2013]{horvath2013dna}
+Horvath, S. (2013).
+\newblock Dna methylation age of human tissues and cell types.
+\newblock {\em Genome biology}, 14(10):1--20.
+
+\bibitem[Kom et~al., 1997]{kom1997time}
+Kom, E.~L., Graubard, B.~I., and Midthune, D. (1997).
+\newblock Time-to-event analysis of longitudinal follow-up of a survey: choice of the time-scale.
+\newblock {\em American journal of epidemiology}, 145(1):72--80.
+
+\bibitem[Kuh et~al., 2014]{kuh2014life}
+Kuh, D., Karunananthan, S., Bergman, H., and Cooper, R. (2014).
+\newblock A life-course approach to healthy ageing: maintaining physical capability.
+\newblock {\em Proceedings of the Nutrition Society}, 73(2):237--248.
+
+\bibitem[Levine, 2013]{levine2013modeling}
+Levine, M.~E. (2013).
+\newblock Modeling the rate of senescence: can estimated biological age predict mortality more accurately than chronological age?
+\newblock {\em Journals of Gerontology Series A: Biomedical Sciences and Medical Sciences}, 68(6):667--674.
+
+\bibitem[Lifelines, 2023]{Lifelines}
+Lifelines (2023).
+\newblock Lifelines.
+\newblock \url{https://www.lifelines.nl/}.
+
+\bibitem[L{\'o}pez-Ot{\'\i}n et~al., 2013]{lopez2013hallmarks}
+L{\'o}pez-Ot{\'\i}n, C., Blasco, M.~A., Partridge, L., Serrano, M., and Kroemer, G. (2013).
+\newblock The hallmarks of aging.
+\newblock {\em Cell}, 153(6):1194--1217.
+
+\bibitem[Marmot, 2005]{marmot2005social}
+Marmot, M. (2005).
+\newblock Social determinants of health inequalities.
+\newblock {\em The lancet}, 365(9464):1099--1104.
+
+\bibitem[Mars et~al., 2020]{mars2020polygenic}
+Mars, N., Koskela, J.~T., Ripatti, P., Kiiskinen, T.~T., Havulinna, A.~S., Lindbohm, J.~V., Ahola-Olli, A., Kurki, M., Karjalainen, J., Palta, P., et~al. (2020).
+\newblock Polygenic and clinical risk scores and their impact on age at onset and prediction of cardiometabolic diseases and common cancers.
+\newblock {\em Nature medicine}, 26(4):549--557.
+
+\bibitem[Mitnitski et~al., 2001]{mitnitski2001accumulation}
+Mitnitski, A.~B., Mogilner, A.~J., and Rockwood, K. (2001).
+\newblock Accumulation of deficits as a proxy measure of aging.
+\newblock {\em TheScientificWorldJournal}, 1:323--336.
+
+\bibitem[Nakamura et~al., 1988]{nakamura1988assessment}
+Nakamura, E., Miyao, K., and Ozeki, T. (1988).
+\newblock Assessment of biological age by principal component analysis.
+\newblock {\em Mechanisms of ageing and development}, 46(1-3):1--18.
+
+\bibitem[Niccoli and Partridge, 2012]{niccoli2012ageing}
+Niccoli, T. and Partridge, L. (2012).
+\newblock Ageing as a risk factor for disease.
+\newblock {\em Current biology}, 22(17):R741--R752.
+
+\bibitem[Park et~al., 2009]{park2009developing}
+Park, J., Cho, B., Kwon, H., and Lee, C. (2009).
+\newblock Developing a biological age assessment equation using principal component analysis and clinical biomarkers of aging in korean men.
+\newblock {\em Archives of gerontology and geriatrics}, 49(1):7--12.
+
+\bibitem[Sprott, 2010]{sprott2010biomarkers}
+Sprott, R.~L. (2010).
+\newblock Biomarkers of aging and disease: introduction and definitions.
+\newblock {\em Experimental gerontology}, 45(1):2--4.
+
+\bibitem[Valderas et~al., 2009]{valderas2009defining}
+Valderas, J.~M., Starfield, B., Sibbald, B., Salisbury, C., and Roland, M. (2009).
+\newblock Defining comorbidity: implications for understanding health and health services.
+\newblock {\em The Annals of Family Medicine}, 7(4):357--363.
+
+\bibitem[Walter et~al., 2011]{walter2011genome}
+Walter, S., Atzmon, G., Demerath, E.~W., Garcia, M.~E., Kaplan, R.~C., Kumari, M., Lunetta, K.~L., Milaneschi, Y., Tanaka, T., Tranah, G.~J., et~al. (2011).
+\newblock A genome-wide association study of aging.
+\newblock {\em Neurobiology of aging}, 32(11):2109--e15.
+
+\bibitem[Wang et~al., 2017]{wang2017predicting}
+Wang, Z., Li, L., Glicksberg, B.~S., Israel, A., Dudley, J.~T., and Ma'ayan, A. (2017).
+\newblock Predicting age by mining electronic medical records with deep learning characterizes differences between chronological and physiological age.
+\newblock {\em Journal of biomedical informatics}, 76:59--68.
+
+\bibitem[Wikstr{\"o}m et~al., 2015]{wikstrom2015clinical}
+Wikstr{\"o}m, K., Lindstr{\"o}m, J., Harald, K., Peltonen, M., and Laatikainen, T. (2015).
+\newblock Clinical and lifestyle-related risk factors for incident multimorbidity: 10-year follow-up of finnish population-based cohorts 1982--2012.
+\newblock {\em European journal of internal medicine}, 26(3):211--216.
+
+\bibitem[World Health Organization, 2019]{WHO}
+World Health Organization (2019).
+\newblock Global health estimates : Life expectancy and leading causes of death and disability.
+\newblock \url{https://www.who.int/data/gho/data/themes/mortality-and-global-health-estimates}.
+
+\bibitem[Zenin et~al., 2019]{zenin2019identification}
+Zenin, A., Tsepilov, Y., Sharapov, S., Getmantsev, E., Menshikov, L., Fedichev, P.~O., and Aulchenko, Y. (2019).
+\newblock Identification of 12 genetic loci associated with human healthspan.
+\newblock {\em Communications biology}, 2(1):41.
+
+\bibitem[Zhang et~al., 2018]{zhang2018time}
+Zhang, Z., Reinikainen, J., Adeleke, K.~A., Pieterse, M.~E., and Groothuis-Oudshoorn, C.~G. (2018).
+\newblock Time-varying covariates and coefficients in cox regression models.
+\newblock {\em Annals of translational medicine}, 6(7).
+
+\end{thebibliography}

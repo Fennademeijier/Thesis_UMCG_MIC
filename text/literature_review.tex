@@ -1,0 +1,56 @@
+\chapter{Literature Review}
+\label{chap:lit_review} 
+
+% Ageing research, what has been done? 
+As human life expectancy continuously increases, healthy ageing has become an important topic in geriatric research. The World Health Orginization defines healthy ageing as the process of developing and maintaining the functional ability that enables well-being in older age \citep{WHO}. Hence, healthy ageing is not only about living a longer life, but about maintaining good physical and mental health, independence and social participation in later life. Global health estimates confirm that the last century saw an increase in healthy life expectancy, also defined as healthspan, but that this trend has not kept pace with the increase in lifespan. The delineation between healthspan and lifespan calls for researchers to identify determinants of healthy ageing and develop interventions that promote it. In this section, we will review the literature on previous ageing research, and discuss various methods that have been applied to assess (quantify?) the impact of risk factors on age progression. 
+
+Next, we overview healtspan research and introduce chronic disease development as a proxy for ageing. Then we dicuss application on survival modelling techniques in the field of geriatric research and we consider some main features. Finally, gaps in previous research will be discussed and we will identify areas of further research. % laatste stukje laat structuur van sectie zien. 
+
+% History of biomarkers of ageing research % check out notion literature on previous ageing research, and discuss various methods that have been applied to assess (quantify?) the impact of risk factors on age progression. %Moet het niet verder in de tijd terug? 
+
+% Biomarkers of ageing
+% Biological age
+% Biological clock
+% Prognostic analysis using data in large clinical trials
+% Bridge form lifespan extension research to a growing interest in healthspan research. 
+
+Ageing is an complex process that has been studied extensively in recent years. Previous studies have deployed diverse modelling techniques that aim to capture and quantify the impact of various factors associated with ageing. \cite{mitnitski2001accumulation} propose a low-dimensional representation in the form of a 'frailty index', defined by the proportion of accumulated health deficits, to quantify ageing. Specifically, the concept of biomarkers of age was introduced by \cite{sprott2010biomarkers} in the 1980s, and is based on the assumption that there exist biological parameters that better measure the rate of ageing than chronological age. Since then, many papers have been published that identify biomarkers, such as telomere length \citep{epel2009rate} or DNA methylation (DNAm) patterns \cite{horvath2013dna}, that assess the biological age of an individual. Alternatively, with AI methods advancing and computational power increasing, we saw the emergence of advanced deep learning based approaches. For example, \cite{farrell2022interpretable} suggest a neural network based model that uses physical, biological and demographical variables and can simulate high-dimensional individual trajectories of health and survival. Similarly, \cite{wang2017predicting} present a deep learning prediction model based on electronic medical records that can accurately predict biological age (as measured by telomere length). They also state that individuals with large discrepancy between their chronological age and their predicted biological age are at higher risk for age-related health problems, and that they have higher systolic blood pressure, higher cholesterol, liver damage and anemia. Altogether, there exists extensive literature on biological age and markers of biological ageing. Nonetheless, the recent years saw a shift from longetivity research to healthspan research, fuelled by the societal need to not only extend the years of life but also to improve the quality of those years. %dit is slecht
+
+% mention multimorbidities as proxy for ageing, underlying process, source. Multimorbidity literature. % respiratory lung function $QOL https://www.sciencedirect.com/science/article/abs/pii/S0002962915410717?via%3Dihub ? 
+% association of incidence chronic disease and association with age
+% top chronic diseases 
+% indicatrs --> inflammatory markers https://onlinelibrary.wiley.com/doi/full/10.1111/imr.12295?casa_token=_WgsjleRutQAAAAA%3AXxclDeaMgMQ8KwkBsZCj6_sG4-JEOFcsY0RJ8irzVdAVuZdwImOAmLJJwqDeXM-hR6_i_AwHOoQmwWZ7
+% more data available clinical trials etc
+
+Healthspan research aims at identifying factors that are associated with the development of major diseases that drive morbidity and mortality. Given that ageing is the single most important risk factor for chronic disease accumulation, and therefore for end-of-healthspan, it is a promising target for the development of interventions that increase risilience to functional decline \citep{niccoli2012ageing}. Multimobidity refers to the co-occurence of two or more chronic conditions in an individual \citep{valderas2009defining}, and is associated with a broad range of behavioural and physiosocial factors. In particular, a number of lifestyle risk factors, such as smoking, obestity and unhealthy diet predispose to multimorbidity \citep{wikstrom2015clinical}. Moreover, it is well estabislished that there is an association between socioeconomic status and multimorbidity \citep{marmot2005social}. The premise that ageing is amongst the underlying mechanisms that drive development of multimorbidity is based on several studies that address this topic. A study by \cite{goldberg2015drivers} discuss how mechanisms of age-related inflammation lead to functional decline and the development of chronic disease. Chronic inflammation is associated with a wide range of chronic diseases, including diabetes, cardiovascular disease, kidney disease, Alzheimer's disease, and cancer. Although accute inflammation is a required natural response of the body to defend itself against microbial infection, evidence suggests that the mechanisms responsible for regulating inflammation become dysregulated as a result of ageing \citep{bruunsgaard2003age}. Dietary interventions, such as caloric restriction and increased intake of saturated fatty acids, have been proposed to deactivate the inflammasome and improve healthspan. Other research proposes a set of objective healthy ageing indicators, including tests of grip strength, walking speed, chair rising and standing balance to capture physical function at an individual level associated with specific health outcomes. Their findings are summarized by \cite{kuh2014life}, and indicate that lower performance on these tests is associated with higher risk of cardiovascular disease, dementia and loss of independence. The diversity of the aforemetioned risk factors for chronic disease development and indicators for decreased healthspan emphasize the need for a multifactorial approach to healtspan research. Fortunately, modern longitudinal cohort studies that include large arrays of environmental, sociodemographic, and socioeconomic data are becoming more publicly available in recent years. They are particularly suited to investigate age-related chronic disease development and multifactorial dynamics controlling the ageing process. Specifically, based on the assumption that ageing is the underlying process that drives chronic disease, data from large clinical cohorts is exploited to investigate healthspan or incidence of chronic disease as a proxy for ageing. 
+
+% Dynamic survival modelling history
+In a medical context, finding prognostic markers associated with a time-to-event outcome in the form of disease onset or incidence is often of interest, to help clinicians with decision making. 
+% Introotje survival models used in clincial data --> proportional hazard model % Voorbeelden van een aantal papers die dit gebruiken
+Several studies deploy survival-based risk models on clinical multifactorial data to reveal determinants of health outcomes, such as healthspan. A model that is regularly used for this purpose is the Cox Proportional Hazard Model. For example, \cite{bonaccio2019impact} find novel biomarkers that associate a healthy lifestyle score to all-cause mortality, cardiovascular disease and cancer risk by deployment of a Cox regression model. Similarly, \cite{mars2020polygenic} study the incidence of coronary heart disease, type 2 diabetes, atrial fibrillation, breast cancer and prostate cancer in relation to polygenic risk score derived from genomic infomration using a Cox proportional hazard approach. \cite{zenin2019identification} build a Cox-Gompertz proportional hazard model to predict the age at the end of healthspan depending on a set of demographic and genetic variables. They define healthspan as an integrated quantity, based on the incidence of cancer, dementia, COPD, congestive heart failure and diabetes; chronic diseases that follow Gompertz dynamics. In line with this healthspan approach, \cite{walter2011genome} use the first incidence of either myocardinal infarction, heart failure stroke, dementia, hip fracture, cancer, or death as the target in their Cox proportional hazard model. They find 8 single nucleotide polymorphisms (SNPs) that predict risk of major disease, and evaluate candidate genes for ageing by genome-wide association study (GWAS).  % In het specifiek healthspan, disease development uitkomsten (related literature) 
+However, the aforemetioned methods do not exploit the longitudinal nature of many clinical studies, where periodic follow-up beyond baseline produces updated biomarker information that can improve inference and risk prediction. 
+% Extensie naar time-dependent analyse 
+Such dynamic survival models can incorporate time-varying covariates or account for time-varying effects, and play a vital role in individualized clinical decision making. This is the type of model that we will consider in this paper. 
+% Voorbeelden
+ 
+Several clinical studies have used dynamic Cox models to investigate the relationship between time-varying covariates or coefficients, and disease outcomes. Inclusion of time-varying elements in a Cox model entails relaxation of the proportional hazard assumption, and is usually modelled using time-dependent Cox models or joint modeling of longitudinal and survival data \citep{zhang2018time}. 
+
+% \cite{huang2023dynamic}  Dynamic effects of prognostic factors and individual survival prediction for amyotrophic lateral sclerosis disease
+% construct a dynamic Cox model and identify dynamic effects of treatment, albumin, creatinine calcium, hematocrit and hemoglobin on amyotrophic lateral sclerosis (ALS) survival. 
+
+%Dynamic Changes in Long-Term Exposure to Ambient Particulate Matter and Incidence of Hypertension in Adults
+%Time-varying Cox model was used to examine the associations between ΔPM2.5 and the development of hypertension n. Our findings demonstrate that air pollution mitigation is an effective strategy to reduce the risk of cardiovascular disease.
+
+
+
+% Brug naar specifications,
+ 
+
+
+
+
+% Censoring
+% Time scale
+% Conclusion
+
+ 

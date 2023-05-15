@@ -1,0 +1,102 @@
+\chapter{Data }
+\label{chap:data}
+In this chapter we introduce the data. Section \ref{section:data:data_description} offers a general description of the data used in this paper. The subsequent section \ref{section:data:healthspan_target} outlines the selection process of diseases includes in the target. In particular, in section \ref{section:data:disease_incidence_ruling} we highlight our approach to defining disease incidence, and in section \ref{section:data:feature_selection_and_preprocessing} we discuss the feature selection process. Lastly, in section \ref{section:data:missing_data} we discuss how missing data is handled. 
+
+\section{Lifelines}
+\label{section:data:data_description}
+The study was conducted with data from the Lifelines cohort, which is a large multi-generational study based in the northern part of the Netherlands \citep{Lifelines}. It was established by the UMCG in 2006, and primarily aims at gaining insight into the interactions between environmental, phenotypic and genotypic risk factors that affect the development of chronic diseases and healthy ageing. At baseline, data were collected for 167,729 participants ranging in age from 6 months to 93 years. The study involves regular physical examinations, cognitive tests, lung function and electrocardiogram (ECG), and extensive questionnaires completed every 5 years at a Lifelines location. In addition, participants complete follow-up questionnaires approximately every 1.5 years, providing insight into changes in behavior over time.
+Exclusion criteria include severe psychiatric or physical illnes, a limited life expectancy ($<$ 5 years) or insufficient proficiency of the Dutch language. The data is provided by the University Medical Centre Groningen and the Lifelines research office and can be accessed via a secure Linux environment running on the high-performance cluster of the UMCG. All participants signed an informed consent form before participation. Moreover, the Lifelines Cohort Study is conducted according to the principles of the Declaration of Helsinki and in accordance with research code of the UMCG.
+
+\section{Healthspan}
+\label{section:data:healthspan_target} %shortlist voor nu: COPD, diabetes, stroke (kanker moet gesplits worden in type kanker), rest aanvullen
+The target of the time-to-event analysis conducted in this paper is the incidence age of first disease from a shortlift of selected disease. This incidence age is defined as the healthspan, or disease-free survival time of an individual. The diseases on the shortlist are selected based on a number of criteria. 
+
+%1. They should be approximately (!!) equally severy, have the same impact on QoL. 
+%2. Global Burden of Disease \cite{GBD}
+Firstly, the diseases are selected based on their chronic nature, their impact on an individual's ability to function, and their relatively equal effect on Health-related Quality of Life (HRQoL). Furthermore, selection criteria include that they are highly associated with mortality and have a high risk factor attribution according to the Global Burden of Disease \citep{GBD}. % Write about global burden of disease blabla 
+In the selection process, several clinical experts from the UMCG have been consulted. 
+% sterker maken https://www.thelancet.com/lancet/visualisations/gbd-compare 
+\vspace{0.5cm}
+\begin{table}[H]
+    \centering
+    \caption{Global Burden of Disease 2019}
+    \begin{tabular}{lll}
+    \cline{1-3}
+             & Percentage attributable of total deaths & Risk factor attribution     \\ \cline{1-3}
+    Stroke   & 11.59\% (10.78\% - 12.22\%)             & 84.96\% (81.16\% - 88.93\%) \\
+    Diabetes & 2.74\% (2.58\% - 2.87\%)                & 100\%                       \\
+    COPD     & 5.8\% (5.19 \%- 6.27\%)                 & 79.15\% (76.00\% - 82.08\%) 
+    \end{tabular}
+    \label{table:data:global_burden_of_disease}
+\end{table}
+%3. Nr of occurences / incidence / association with age 
+%4. Analyze prevalence before start of study 
+Secondly, the diseases are selected on their association with age and their prevalence and incidence numbers. 
+\vspace{0.5cm}
+\begin{table} [H]
+    \centering
+    \caption{Disease prevalence before start of study and incidence rate during study}
+    \begin{tabular}{lll}
+    \cline{1-3}
+                       & Prevalent cases & Incidence percentage\\ \cline{1-3}
+    Stroke             &                 &                    \\
+    Diabetes           & 3527            & 1.91\%             \\
+    COPD               & 7770            & 2.12\%              \\
+    Cancer (all types) & 6628            & 2.63\%              \\
+    Dementia           & 18              & 0.10\%             
+    \end{tabular}
+    \label{table:data:disease_prevalence_incidence}
+\end{table} 
+
+\section{Disease incidence ruling}
+\label{section:data:disease_incidence_ruling}
+The Lifelines cohort consists of 3 main assessments, and 4 intermediate assesments. Information on disease presence and development is collected through questionnaires. Baseline assessment 1a contains information on prevalence of disease. Given that this study aims to investigate the dynamics of factors contributing to disease incidence, participants who have disease prevalence at or prior to baseline are excluded from analysis. 
+
+Baseline assessment 1a contains information on presence of a disease before start of study. Follow-up assessments 1b, 1c, 2a, 3a and 3b contain information on disease development since the last time a Lifelines questionnaire was filled in. This structure allows for determination of between what ages a disease has developed, based on the assessments that an individual participated in. Besides disease presence and development information, Lifelines contains extensive information on demographics, lifestyle, psychosocial aspects and haematological and biochemical measures.  The majority of the data is collected during the baseline assessment, referred to as assessment 1a. The subsequent main assessments, 2a and 3a, primarily contain follow-up information, which overlaps significantly with the baseline assessment 1a. On the other hand, the intermediate assessments, 1b, 1c, 2b, and 3b, include a smaller subset of information. An overview of the number of variables and overlapping variables before feature selection is provided in Table \ref{table:data:variable_overview_before_preprocessing}: 
+
+\vspace{0.5cm}
+\begin{table} [H]
+    \centering
+    \caption{Overview of variables and overlap with baseline of all assessments}
+    \begin{tabular}{ccc}
+        \hline
+        \multicolumn{1}{l}{Assessment} & \multicolumn{1}{l}{Nr of columns} & \multicolumn{1}{l}{Nr of overlapping columns with 1a} \\ \hline
+        1a (*)                             & 2062                              & 2062                                                                      \\
+        1b                             & 120                               & 109                                                                       \\
+        1c                             & 118                               & 107                                                                       \\
+        2a                             & 982                               & 743                                                                       \\
+        2b                             & 43                                & 39                                                                        \\
+        3a                             & 1063                              & 802                                                                       \\
+        3b                             & 86                                & 76                                                                        \\
+        2a + 3a (**)                       & 1374                              & 980                                 
+    \end{tabular}
+    \begin{tablenotes}
+        \small
+        \item \hspace{1cm} * baseline assessment
+        \item \hspace{1cm} ** merged with inner join
+      \end{tablenotes}
+    \label{table:data:variable_overview_before_preprocessing}
+\end{table}
+
+An overview of data that is collected through questionnaires and clinical visits can be found in the data catologue of Lifelines. An overview of the information collected in the baseline questionnaire can be found in Table \ref{table:appendix:data_overview_baselines}, and an overview of the measurements collected during the clinical visits can be found in Table \ref{table:appendix:data_overview_clinical_measures} in Appendix \ref{chap:appendix}. % Weet niet of dit stuk hier helemaal past? 
+
+% stuk over disease incidence
+The follow-up structure of the data and the target requires a custom disease incidence ruling approach. Not all participants have participated in every assessment, and for some participants disease development information is missing for some assessments. Moreover, besides a set of constant covariates, there are measures that will vary over time and consequently over assessments. The effect of both the constant and time-varying variables on the outcome will be assessed in this paper. In order to do so, given the aforementioned missingness of data, custom rules of exlusion and time-dependent covariate selection are required. 
+% TBD maar zoiets:
+As mentioned, participants who have disease prevalence at or prior to baseline are excluded from analysis. The follow-up questions with which disease incidence is derermined are of the form: \textit{'Did the health problems listed below start since the last time you filled in a Lifelines questionnaire?'}. Therefore, disease incidence time is inherently conditional on what assessments a participant took part in. 
+% uitzoeken of het ook bestaat dat followup NA is maar er wel data is
+% RULING TBD
+
+
+
+\section{Feature selection and preprocessing}
+\label{section:data:feature_selection_and_preprocessing}
+After feature selection and preprocessing... 
+
+
+\section{Missing data}
+\label{section:data:missing_data}
+%feature selection : why are some features selected? literature? correlation with age? 
+
+
+%what is average age to onset-of-dsease?

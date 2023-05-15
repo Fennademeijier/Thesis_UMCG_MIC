@@ -95,11 +95,11 @@
 % HEADER
 
 \usepackage{fancyhdr}
-\lhead[\rm\thepage]{\fancyplain{}{\sl{\rightmark}}}
-\rhead[\fancyplain{}{\sl{\leftmark}}]{\rm\thepage}
+\lhead[\thepage]{\fancyplain{}{\sl{\rightmark}}}
+\rhead[\fancyplain{}{\sl{\leftmark}}]{{\thepage}}
 \chead{}\lfoot{}\rfoot{}\cfoot{}
 \pagestyle{fancy}
-\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\headrulewidth}{0.2pt}
 
 %% ----------------------------------------------------------------
 % SECTION MARKS
@@ -327,17 +327,17 @@
 \newcommand*{\FACULTY}[1]{\def\FACNAME{#1}}
 \newcommand*{\subject}[1]{\def\subjectname{#1}}
 \newcommand*{\keywords}[1]{\def\keywordnames{#1}}
-\newcommand*{\logo}[2]{\def\logofig{#1}\def\logowidth{#2}}
+%\newcommand*{\logo}[2]{\def\logofig{#1}\def\logowidth{#2}}
 \newcommand*{\subtitle}[1]{\def\subtitle{#1}}
 
-\supervisor		{Dr. Flavius Frasincar}
+\supervisor		{Prof. Patrick Groenen}
 \coreader			{TBD}
 \examiner			{}
 \degree				{Master of Science in Econometrics \& Operations Research}
 \authors			{}
 \university		{{Erasmus Universiteit Rotterdam}}
 \UNIVERSITY		{{EUR}}
-\studentnumber{435886}
+\studentnumber{603450}
 \department		{Business Analytics and Quantitative Marketing}
 \DEPARTMENT	{Econometrics Institute}
 \group				{\texorpdfstring{\href{http://www.isis.ecs.soton.ac.uk}
@@ -354,6 +354,7 @@
 
 %% ----------------------------------------------------------------
 % TITLE PAGE
+
 
 \usepackage{soul}		% Small capitals & letter spacing
 \soulregister{\univname}{0}
@@ -374,8 +375,20 @@
 %    \vskip 10\p@
     \begin{center}
       \setlength{\parskip}{0pt}
-      {\includegraphics[width=\logowidth, keepaspectratio=true]{\logofig} \par}
+      %{\includegraphics[width=\logowidth, keepaspectratio=true]{\logofig} \par}
       \vskip 75\p@
+      \begin{figure}
+        \centering
+        \begin{subfigure}
+          \centering
+          \includegraphics[width=0.5\linewidth]{figures/erasmus-logo.png}
+        \end{subfigure}%
+        \begin{subfigure}
+          \centering
+          \includegraphics[width=0.35\linewidth]{figures/umcg-logo.png}
+        \end{subfigure}
+        \end{figure}
+        
       {\huge \bf \@title \par}
 %      \vfill
       % \vskip 10\p@
@@ -392,11 +405,8 @@
 %      {\tiny non-final version, compiled at \number\day \space \today}
 
       \vfill
-      {\normalsize A thesis submitted in partial fulfilment for the degree of \par}
       \smallskip
       {\normalsize\caps \degreename \par}
-      \bigskip
-      {\normalsize at the \par}
       \bigskip
       {\normalsize \facname \par}
       \smallskip
