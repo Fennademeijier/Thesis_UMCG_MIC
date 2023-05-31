@@ -5,6 +5,11 @@ Bae, C.-Y., Kang, Y.~G., Kim, S., Cho, C., Kang, H.~C., Yu, B.~Y., Lee, S.-W., C
 \newblock Development of models for predicting biological age (ba) with physical, biochemical, and hormonal parameters.
 \newblock {\em Archives of gerontology and geriatrics}, 47(2):253--265.
 
+\bibitem[Bo et~al., 2019]{bo2019dynamic}
+Bo, Y., Guo, C., Lin, C., Chang, L.-y., Chan, T.-C., Huang, B., Lee, K.-P., Tam, T., Lau, A.~K., Lao, X.~Q., et~al. (2019).
+\newblock Dynamic changes in long-term exposure to ambient particulate matter and incidence of hypertension in adults: a natural experiment.
+\newblock {\em Hypertension}, 74(3):669--677.
+
 \bibitem[Bonaccio et~al., 2019]{bonaccio2019impact}
 Bonaccio, M., Di~Castelnuovo, A., Costanzo, S., De~Curtis, A., Persichillo, M., Cerletti, C., Donati, M., de~Gaetano, G., Iacoviello, L., and sani Study~Investigators, M. (2019).
 \newblock Impact of combined healthy lifestyle factors on survival in an adult general population and in high-risk groups: prospective results from the moli-sani study.
@@ -14,6 +19,11 @@ Bonaccio, M., Di~Castelnuovo, A., Costanzo, S., De~Curtis, A., Persichillo, M., 
 Br{\"u}{\"u}nsgaard, H. and Pedersen, B.~K. (2003).
 \newblock Age-related inflammatory cytokines and disease.
 \newblock {\em Immunology and Allergy Clinics}, 23(1):15--39.
+
+\bibitem[Canchola et~al., 2003]{canchola2003cox}
+Canchola, A.~J., Stewart, S.~L., Bernstein, L., West, D.~W., Ross, R.~K., Deapen, D., Pinder, R., Reynolds, P., Wright, W., Anton-Culver, H., et~al. (2003).
+\newblock Cox regression using different time-scales.
+\newblock {\em Western Users of SAS Software. San Francisco, California}.
 
 \bibitem[Epel et~al., 2009]{epel2009rate}
 Epel, E.~S., Merkin, S.~S., Cawthon, R., Blackburn, E.~H., Adler, N.~E., Pletcher, M.~J., and Seeman, T.~E. (2009).
@@ -30,6 +40,11 @@ Farrell, S., Stubbings, G., Rockwood, K., Mitnitski, A., and Rutenberg, A. (2021
 \newblock The potential for complex computational models of aging.
 \newblock {\em Mechanisms of Ageing and Development}, 193:111403.
 
+\bibitem[Geraili et~al., 2022]{geraili2022evaluation}
+Geraili, Z., Hajian-Tilaki, K., Bayani, M., Hosseini, S.~R., Khafri, S., Ebrahimpour, S., Javanian, M., Babazadeh, A., and Shokri, M. (2022).
+\newblock Evaluation of time-varying biomarkers in mortality outcome in covid-19: an application of extended cox regression model.
+\newblock {\em Acta Informatica Medica}, 30(4):295.
+
 \bibitem[Global burden of disease, 2019]{GBD}
 Global burden of disease (2019).
 \newblock Global burden of disease.
@@ -40,10 +55,20 @@ Goldberg, E.~L. and Dixit, V.~D. (2015).
 \newblock Drivers of age-related inflammation and strategies for healthspan extension.
 \newblock {\em Immunological reviews}, 265(1):63--74.
 
+\bibitem[Heller, 2011]{heller2011proportional}
+Heller, G. (2011).
+\newblock Proportional hazards regression with interval censored data using an inverse probability weight.
+\newblock {\em Lifetime data analysis}, 17:373--385.
+
 \bibitem[Horvath, 2013]{horvath2013dna}
 Horvath, S. (2013).
 \newblock Dna methylation age of human tissues and cell types.
 \newblock {\em Genome biology}, 14(10):1--20.
+
+\bibitem[Huang et~al., 2023]{huang2023dynamic}
+Huang, B., Geng, X., Yu, Z., Zhang, C., and Chen, Z. (2023).
+\newblock Dynamic effects of prognostic factors and individual survival prediction for amyotrophic lateral sclerosis disease.
+\newblock {\em Annals of Clinical and Translational Neurology}.
 
 \bibitem[Kom et~al., 1997]{kom1997time}
 Kom, E.~L., Graubard, B.~I., and Midthune, D. (1997).
@@ -105,6 +130,11 @@ Sprott, R.~L. (2010).
 \newblock Biomarkers of aging and disease: introduction and definitions.
 \newblock {\em Experimental gerontology}, 45(1):2--4.
 
+\bibitem[Sun and Chen, 2010]{sun2010comparison}
+Sun, X. and Chen, C. (2010).
+\newblock Comparison of finkelstein’s method with the conventional approach for interval-censored data analysis.
+\newblock {\em Statistics in Biopharmaceutical Research}, 2(1):97--108.
+
 \bibitem[Valderas et~al., 2009]{valderas2009defining}
 Valderas, J.~M., Starfield, B., Sibbald, B., Salisbury, C., and Roland, M. (2009).
 \newblock Defining comorbidity: implications for understanding health and health services.
@@ -119,6 +149,16 @@ Walter, S., Atzmon, G., Demerath, E.~W., Garcia, M.~E., Kaplan, R.~C., Kumari, M
 Wang, Z., Li, L., Glicksberg, B.~S., Israel, A., Dudley, J.~T., and Ma'ayan, A. (2017).
 \newblock Predicting age by mining electronic medical records with deep learning characterizes differences between chronological and physiological age.
 \newblock {\em Journal of biomedical informatics}, 76:59--68.
+
+\bibitem[Webb and Ma, 2023]{webb2023cox}
+Webb, A. and Ma, J. (2023).
+\newblock Cox models with time-varying covariates and partly-interval censoring--a maximum penalised likelihood approach.
+\newblock {\em Statistics in medicine}, 42(6):815--833.
+
+\bibitem[Wendel-Vos et~al., 2003]{wendel2003reproducibility}
+Wendel-Vos, G.~W., Schuit, A.~J., Saris, W.~H., and Kromhout, D. (2003).
+\newblock Reproducibility and relative validity of the short questionnaire to assess health-enhancing physical activity.
+\newblock {\em Journal of clinical epidemiology}, 56(12):1163--1169.
 
 \bibitem[Wikstr{\"o}m et~al., 2015]{wikstrom2015clinical}
 Wikstr{\"o}m, K., Lindstr{\"o}m, J., Harald, K., Peltonen, M., and Laatikainen, T. (2015).

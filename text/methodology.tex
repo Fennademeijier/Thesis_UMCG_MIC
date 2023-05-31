@@ -1,56 +1,68 @@
 \chapter{Methodology}
 \label{chap:methodology}
-The main objective of multivariate survival modelling is to understand and quantify factors that influence the time until an event occurs. In this study, the event of interest is the time to onset of a first chronic disease. Survival analysis entails the estimation of a \textit{survival function}, denotes as \begin{math}
-    S(t)
-\end{math}, which represents the percentage of participants for which the event has not occurred up to and including time \textit{t}. A survival curve may be interpreted as the individual probability of living past time \textit{t} without onset of a first chronic disease. Consequently, a survival curve is defined as a collection of \textit{hazard rates h(t)}, where \textit{h(t)} is the probability of the event occuring at time \textit{t} given that it has not occured up to time \textit{t-1}. The effect of covariates on time-to-event can be assessed by comparing survival curves for different covariates. 
+The main objective of multivariate survival modelling is to understand and quantify factors that influence the time until an event occurs. In this study, the event of interest is the time to onset of a first disease from a shortlift of selected diseases. There are various types of multivariate survival models, including (semi-)parametric statistical appoaches and several machine- or deep-learning approaches. In this paper, we will focus mainly on the semi-parametric Cox Proportional Hazard Model, and its dynamic extension. 
 
-This section provides a comprehensive overview of the \textit{Cox Proportional Hazard}(CPH) model, which is widely recognized as the most commonly used model in multivariate time-to-event analysis. In addition, this section highlights several extensions and specifications of the CPH model, such as the inclusion of time-dependent covariates and the choice of time-scale. 
+Let $T$ be a random response variable representing time, then the survival function of a population is defined as \begin{math}
+    S(t) = P(T>t)
+\end{math}. $S(t)$ represents the probability of not experiencing the event up to and including time \textit{t}, or surviving past time \textit{t}. On the other hand, the harzard rate. $h(t)$, is the instantaneous risk of an event occuring at time \textit{t} given that it has not occured up to time \textit{t-1}. Mathematically, the hazard rate can be defined as the limit of the conditional probability of the event occurring within the infinitesimal interval $(t, t+\delta t)$ given that $T > t$, divided by the infinitesimal interval length $\delta t$. This can be expressed as:
+$$
+h(t)=\lim _{\delta t \rightarrow 0} \frac{\operatorname{P}(t \leq T \leq t+\delta t \mid T>t)}{\delta t}
+$$
+Additionally, the cumultive hazard function, $H(t)$ represents the accumulated risk up to time \textit{t}, and is defined as: $H(t) = \int_{0}^{t}h(u)du$. knowledge of any two of these functions enables the computation of the third function, as $S(t) = exp(-H(t))$ and $h(t) = \frac{-S'(t)}{S(t)}$. A thorough understanding of these functions is essential for the remainder of this section. 
+
+In the first part of this section, a comprehensive overview of the Cox Proportional Hazard (CPH) model and its time-varying variant, the Extended Cox model (ECM), is provided. In the second part, we discuss model estimation (what techniques we applied, the steps I took?) and model evaluation techniques. 
+% And how to assess the proportional hazards assumption . If the assumption is violated, consider using extended survival models (e.g., time-varying covariates or stratification)
+
 \medskip
 \section{Cox Proportional Hazard Model}
 \label{section:data:CPH}
-The CPH model is a \textit{regression} model that attempts to model the hazard rate $h(t|x)$ as a function of time $t$ and covariates $x$. Mathematically, the CPH is represented by: 
+The CPH model is a \textit{regression} model that attempts to model the hazard rate $h(t|\mathbf{Z})$ as a function of time $t$ and the vector of covariates $\mathbf{Z}$. Mathematically, the CPH is represented by: 
 
 $$
-\underbrace{h(t \mid x)}_{\text {hazard }} = \overbrace{b_0(t)}^{\text {baseline hazard }} \underbrace{\exp \overbrace{\left(\sum_{i=1}^n b_i\left(x_i-\overline{x_i}\right)\right)}^{\text {log-partial hazard }}}_{\text {partial hazard }}
+\underbrace{h(t \mid \mathbf{Z})}_{\text{hazard rate}} =  b_0(t) \exp(\mathbf{\beta}\mathbf{Z})  = \overbrace{b_0(t)}^{\text{baseline hazard}} \underbrace{\exp \left(\sum_{j=1}^n \mathbf{\beta}_j\mathbf{Z}_j\right)}_{\text{partial hazard}}
 $$
 
-According to this specification, the log-hazard of an individual is a linear function of their covariates $x$ and a population-based baseline hazard $b_{0}(t)$. Note that the only time-component in this model is the baseline hazard. The partial hazard, which is dependent on the subject specific covariates, is the time-invariant scaling factor that either inflates or deflates the baseline hazard. This also implies that survival curves can never cross each other. The baseline hazard can be estimated using different methods, such as \textit{Breslow}. %info
+According to this specification, the log-hazard of an individual is a linear function of their covariates $\textbf{Z}$ and a population-based baseline hazard $b_{0}(t)$. Note that the only time-component in this model is the baseline hazard. The partial hazard, which is dependent on the subject specific covariates, is the time-invariant scaling factor that either inflates or deflates the baseline hazard. This also implies that survival curves can never cross each other. The baseline hazard can be estimated using different methods, such as \textit{Breslow}. %more info on this later
 
-A fundamental assumption of the standard CPH is that the hazard ratio adheres to the \textit{proportional hazard assumption}. This assumption implies that the hazard ratio is constant over time for all levels of the covariates. The proportional hazard assumption should be tested and handled if violated. Violation results in biased and unreliable results, and can lead to misinterpretation of factors that influence survival. There are several approaches which address violation of the proportional hazard assumption, such as stratification or the use of time-dependent covariates. In stratified proportional hazard models, seperate Cox models are fit on different groups, which allows these groups to have a different baseline hazard. Another approach is to allow for time-varying covariates in a Cox model. This model, hereafter referred to as the \textit{Extended Cox Model} (ECM), allows the hazard ratios to vary over time and provides a more accurate assessment of the impact of time-varying covariates on the event of interest.  This is the model that will be considered in this paper. 
+A fundamental assumption of the standard CPH is that the hazard ratio adheres to the \textit{proportional hazard assumption}. This assumption implies that the hazard ratio is constant over time for all levels of the covariates. The hazard ratio in a CPH model can be presented by: 
+
+$$\frac{h(t \mid \textbf{Z} = \textbf{z})}{h(t \mid \textbf{Z} = 0)} = \exp(\beta \textbf{z})$$
+
+The hazard ratio depends on covariates $z_1, ..., z_p$, but is independent of time $t$. It is a measure of the relative effect of a particular covariate on the hazard rate. It quantifies the ceteris paribus change in hazard rate when there is a unit change of a particular predictor covariate. Hence, a hazard ratio that is equal to 1 indicates that the covariate has no effect on the hazard rate. A hazard ratio greater than 1 implies an increased risk, and a hazard ratio lower than 1 implies a decreased risk of an event with a unit change of the predictor. The proportional hazard assumption should be tested and handled if violated. % iets over hoe je dat kan testen?
+Violation results in biased and unreliable results, and can lead to misinterpretation of factors that influence survival. There are several approaches which address violation of the proportional hazard assumption, such as stratification or the use of time-dependent covariates. In stratified proportional hazard models, seperate Cox models are fit on different groups, which allows these groups to have a different baseline hazard. Another approach is to allow for time-varying covariates in a Cox model. This model, hereafter referred to as the \textit{Extended Cox Model} (ECM), allows the hazard ratios to vary over time and provides a more accurate assessment of the impact of time-varying covariates on the event of interest. This is the model that will be considered in this paper. 
+
 \section{Extended Cox Model (Cox's Time-varying Model)}
 \label{section:data:ecm}
-The CPH model can be extended in such a way that it can incorporate covariates $x_{i}(t)$ that change over time. This characteristic is of great importance to clinical follow-up studies, as datasets usually include both baseline (time-independent) and time-dependent covariates. Mathematically, the ECM is represented by:  
+The CPH model can be extended in such a way that it can incorporate covariates $Z_i(t)$ that change over time. This extension is possible because of the way the Cox model works: the current covariate values of the participant who had the event are compared to the current covatiate values of the participants who were at risk at that time. It is of great importance to clinical follow-up studies to be able include information that changes with time, as datasets usually include both baseline (time-independent) and time-dependent covariates. Mathematically, the ECM is represented by:  
 
 $$
-h(t \mid x(t))=\overbrace{b_0(t)}^{\text {baseline }} \underbrace{\exp \overbrace{\left(\sum_{i=1}^n \beta_i\left(x_i(t)-\overline{x_i}\right)\right)}^{\text {log-partial hazard }}}_{\text {partial hazard }}
+h(t \mid \mathbf{Z}(t)) =  b_0(t) \exp(\mathbf{\beta}\mathbf{Z}(t)) 
 $$
+In this formula, $\mathbf{Z}(t)$ is a vector of covariates, of which at least one changes over time. For example, $Z_{i}(t) = \textit{const}$ represents a constant characteristic of a participant, such as gender. On the other hand, $Z_i(t) = \sum_{j=1}^{n_i} z_{ij} \mathbb{I}_{[t_{i,j-1}, t_{ij})}(t)$ represents a piecewise constant process that gradually updates values over assessments. Examples of such variables are cholesterol concentration and smoking frequency. Whenever there is a time-interactive component added to the traditional Cox model, the proportional hazards assumption is violated. The hazard ratio for two different participants is time-dependent: 
 
-The package that is most commonly used for survival analysis in R is \textit{Survival}. To use this package, the dataset must be organized in a \textit{long} format, where each individual is represented by a unique \textit{project\_pseudo\_id} variable and each time interval is identified by \textit{start} and \textit{stop} variables. 
-The interval is considered to be open on the left and closed on the right, implying that any variable linked with an interval is presumed to be measured at the \textit{stop} time. Furthermore, both baseline and follow-up covariates are included, and a time-dependent binary \textit{event} variable which indicates whether or not an interval ends in the occurence of the event of interest. 
-% wat moet hier nog meer bij? Iets over estimation methods for regression parameters
-% incidence enzo moet bij data sectie denk ik? 
-However, prediction of survival curves and time-to-event is not trivial when dealing with time-varying covariates, because this would require knowledge on the covariate values beyond the observed times.  %Bridge to dynamic survival modelling 
+$$\frac{h(t \mid \mathbf{Z_1}(t))}{h(t \mid \mathbf{Z_2}(t))} = \frac{b_0(t)}{b_0(t)} \cdot \frac{\exp(\mathbf{\beta}\mathbf{Z_1}(t))}{\exp(\mathbf{\beta}\mathbf{Z_2}(t))} = \exp(\mathbf{\beta} (\mathbf{Z_1}(t) - \mathbf{Z_2}(t) )) $$ 
 
+Note that the interpretation of the estimated coefficient of the constant covariate remains the same as in the CPH model; they represent the change in the hazard ratio associated with a unit change in the covariate. In contrast, the coefficients of the time-dependent covariates represent the instantaneous change in hazard ratio as a result of a unit change in the covariate \textit{at a particular timepoint}. % This difference shoudl be taken into account when intepreting the coefficients --> % Internal/ external covariates en waarom je niet moet doen wat ik ga doen: https://onlinelibrary.wiley.com/doi/full/10.1002/sim.8399
 
-Time-varying covariate values would be taken as the values at the start of each interval.
+A practical disadvantage of the ECM is that prediction of survival curves and individual survival times is not trivial. This would require knowledge about the covariate values beyond the observed times, and these are not available. 
 
-\section{Censoring and choice of time-scale}
-\label{section:data:timescale_censoring}
-% Cencoring and choice of time-scale
-% Meer op cencoring? 
-\noindent Inherent to making inferences about duration is the presence of censoring and the choice of time-scale in the ECM. Censoring is especially common in clinical studies where event status updates and covariates are collected during periodic follow-up assessments. Generally, there are three variations; left-, right- and interval-censoring. Participants who have not developed a chronic disease before the end of the follow-up period are labeled as right-censored. Right censoring can either occur due to end-of-study or due to loss-to-follow-up. When a participant enters the study with a disease of interest already present, this is a case of left-censoring. Interval-censoring occurs when the event occurs inbetween two clinical assessments, and the exact time of incidence is unknown. 
+%The package that is most commonly used for survival analysis is \textit{Survival} in R, and \textit{Lifelines} in Python. To use either of these packages, the dataset must be organized in a \textit{long} format, where each individual is represented by a unique \textit{project\_pseudo\_id} variable and each time interval is identified by \textit{start} and \textit{stop} variables. An example of this schema is shown in section \ref{section:data:disease_incidence_ruling_censoring}. 
 
-The Lifelines dataset \ref{chap:data} has three main assessments. Chronic disease presence and incidence is self-reported in questionnaires. For each condition, presence is reported at the baseline assessment 1a, and incidence is reported at follow-up assessments 2a and 3a. The question on disease follow-up is formulated as 'did the health problems listed below start since the last time you filled in the lifelines questionnaire?'. This question will inherently result in interval-censoring, because it does not provide the specific incidence time of disease. 
+\section{Model estimation}
+\label{section:data:model_estimation}
+In the Extended Cox Model, the regression coefficients $\beta$ are estimated with the partial likelihood method. This likelihood is constructed with the observed event times and knowledge of the order in which the events occur. Suppose there are $N$ individuals and $D$ distinct event times. Let $(\tau_1, ..., \tau_D)$ be the $D$ ordered, distinct event times, assuming that there are no tied event times. For any timepoint $t \geq 0$, the risk set that defines the set of individuals at risk of an event at time $t$ is $R(t) := \{i \mid t_i \geq t\}$. Furthermore, let $i_j$ denote the identity of the participant experiencing the event at time $\tau_j$, and $H_j$ the history of the dataset up to the \textit{j}-th event time. The partial likelihood function can then be written as: 
 
-There are several techniques on how to fit a ECM with interval-censored data. %HOE FIX JE DAT
-%https://onlinelibrary.wiley.com/doi/full/10.1002/sim.9645
+$$L(\boldsymbol{\beta}) = \prod_{j=1}^{d}P(i_j | H_j) = \prod_{j=1}^{d} \frac{\exp(\boldsymbol{\beta}^T \mathbf{Z}_{ij}(\tau_j))}{\sum_{i \in R(\tau_j)} \exp(\boldsymbol{\beta}^T \mathbf{Z}_{i}(\tau_j))}$$
 
+The regression coefficients $\boldsymbol{\beta}$ are estimated by maximizing the likelihood function $L(\boldsymbol{\beta})$. This likelihood function has some nice properties, and is equal to the likelihood function used in the CPH model with time-constant covariates. The only difference is that the values of $\textbf(Z)$ will vary over time and thus over risk sets. Conveniently, the likelihood function can be estimated with an unspecified baseline hazard, as it does not depend on $b_0$. The likelihood function also solely depends on the order of the events, and not on the specific event times. And lastly, right-censored individuals are only take into account in the risk set; resulting in an elegant incorporation of censored participants. 
 
-Left-censored individuals are not taken into account, because it is impossible to evaluate the association of time-varying covariates with chronic disease incidence when the event has already occured.  
+\section{Model evaluation}
+\label{section:data:model_evaluation}
 
 
+% Evaluation literature? 
+%https://deepblue.lib.umich.edu/bitstream/handle/2027.42/147583/ksuresh_1.pdf?sequence=1&isAllowed=y 
+%https://journals.sagepub.com/doi/pdf/10.1177/0272989X18801312
 
-Although survival analysis is designed to deal with estimation of right-censored data, it is important to understand the risks of underestimating the true survival time when ignoring right-censored individuals. 
 
-Another challenge inherent to duration is the choice of time-scale, especially in the analysis of large-scale health surveys where the interest is to find the association of risk factors with the development of a disease. In this case, either the time since the baseline survey (time-on-study), or age can be used as time-scale. %Papers on this 
-Kom et al. (1997) \cite{kom1997time} propose that age, with stratification for birth cohort effects, is the appropriate time scale in Cox proportional hazard regression models that analyze health data from longitudinal studies.  
+% Internal/ external covariates en waarom je niet moet doen wat ik ga doen: https://onlinelibrary.wiley.com/doi/full/10.1002/sim.8399

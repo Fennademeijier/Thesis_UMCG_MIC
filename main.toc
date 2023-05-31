@@ -1,15 +1,17 @@
-\contentsline {chapter}{Introduction}{iii}{chapter*.5}%
-\contentsline {chapter}{Literature Review}{v}{chapter*.6}%
-\contentsline {chapter}{Data }{viii}{chapter*.7}%
-\contentsline {section}{\numberline {0.1}Lifelines}{viii}{section.8}%
-\contentsline {section}{\numberline {0.2}Healthspan}{viii}{section.9}%
-\contentsline {section}{\numberline {0.3}Disease incidence ruling}{ix}{section.12}%
-\contentsline {section}{\numberline {0.4}Feature selection and preprocessing}{xi}{section.14}%
-\contentsline {section}{\numberline {0.5}Missing data}{xi}{section.15}%
-\contentsline {chapter}{Methodology}{xii}{chapter*.16}%
-\contentsline {section}{\numberline {0.6}Cox Proportional Hazard Model}{xii}{section.17}%
-\contentsline {section}{\numberline {0.7}Extended Cox Model (Cox's Time-varying Model)}{xiii}{section.18}%
-\contentsline {section}{\numberline {0.8}Censoring and choice of time-scale}{xiv}{section.19}%
-\contentsline {chapter}{Bibliography}{xv}{dummy.20}%
-\contentsline {chapter}{Appendix}{xviii}{appendix*.22}%
-\contentsline {section}{\numberline {I}Lifelines data overview}{xix}{section.23}%
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.5}%
+\contentsline {chapter}{\numberline {2}Literature Review}{5}{chapter.6}%
+\contentsline {chapter}{\numberline {3}Data}{10}{chapter.7}%
+\contentsline {section}{\numberline {3.1}Lifelines}{10}{section.8}%
+\contentsline {section}{\numberline {3.2}Healthspan}{11}{section.9}%
+\contentsline {section}{\numberline {3.3}Data overview}{12}{section.12}%
+\contentsline {section}{\numberline {3.4}Disease incidence ruling and Censoring}{13}{section.14}%
+\contentsline {section}{\numberline {3.5}Feature selection and preprocessing}{15}{section.16}%
+\contentsline {section}{\numberline {3.6}Missing data}{15}{section.17}%
+\contentsline {section}{\numberline {3.7}Censoring and choice of time-scale}{15}{section.18}%
+\contentsline {chapter}{\numberline {4}Methodology}{16}{chapter.19}%
+\contentsline {section}{\numberline {4.1}Cox Proportional Hazard Model}{17}{section.20}%
+\contentsline {section}{\numberline {4.2}Extended Cox Model (Cox's Time-varying Model)}{18}{section.21}%
+\contentsline {section}{\numberline {4.3}Model estimation}{18}{section.22}%
+\contentsline {section}{\numberline {4.4}Model evaluation}{19}{section.23}%
+\contentsline {chapter}{\numberline {A}Appendix}{24}{appendix.25}%
+\contentsline {section}{\numberline {I}Lifelines data overview}{25}{section.26}%

@@ -1,4 +1,3 @@
-%%
 %% This was file `ecsthesis.cls',
 %% generated with the docstrip utility.
 %%
@@ -209,8 +208,10 @@
 %% ----------------------------------------------------------------
 % DEV TITLE PAGE
 
-% todo: make optional
-\usepackage{datetime}
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\thechapter}{20pt}{\Huge}
 
 %% ----------------------------------------------------------------
 % TABLES
@@ -357,6 +358,7 @@
 
 
 \usepackage{soul}		% Small capitals & letter spacing
+\usepackage[export]{adjustbox}
 \soulregister{\univname}{0}
 
 \renewcommand\maketitle{
@@ -381,13 +383,13 @@
         \centering
         \begin{subfigure}
           \centering
-          \includegraphics[width=0.5\linewidth]{figures/erasmus-logo.png}
+          \includegraphics[width=0.5\linewidth, valign=c]{figures/erasmus-logo.png}
         \end{subfigure}%
         \begin{subfigure}
           \centering
-          \includegraphics[width=0.35\linewidth]{figures/umcg-logo.png}
+          \includegraphics[width=0.35\linewidth, valign=c]{figures/umcg-logo.png}
         \end{subfigure}
-        \end{figure}
+      \end{figure}
         
       {\huge \bf \@title \par}
 %      \vfill
@@ -395,7 +397,7 @@
       % {\bf \subtitle \par}
       \vskip 15 \p@
       {\normalsize by \par}
-      \vskip 15\p@
+      \vskip 10 \p@
       {\Large \bf \authornames \par}
       \bigskip
       {\normalsize Student ID: \studentid \par}
