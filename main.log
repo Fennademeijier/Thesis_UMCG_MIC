@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.19)  12 JUN 2023 16:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.4.19)  12 JUN 2023 17:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -814,7 +814,13 @@ Chapter 2.
 ------------------------------------------------------------------------------
 [7
 
-] [8] [9] [10] [11] [12] [13]) (./text/methodology.tex [14]
+] [8] [9] [10]
+<figures//disease_incidence_ruling.png, id=213, 632.3625pt x 335.75438pt>
+File: figures//disease_incidence_ruling.png Graphic file (type png)
+<use figures//disease_incidence_ruling.png>
+Package pdftex.def Info: figures//disease_incidence_ruling.png  used on input line 118.
+(pdftex.def)             Requested size: 317.52426pt x 168.59401pt.
+ [11] [12 <./figures//disease_incidence_ruling.png>] [13]) (./text/methodology.tex [14]
 Chapter 3.
 ------------------------------------------------------------------------------
  3 Methodology
@@ -847,18 +853,18 @@ Overfull \vbox (13.26042pt too high) has occurred while \output is active []
 
  [27]) [28] (./main.aux) ) 
 Here is how much of TeX's memory you used:
- 20847 strings out of 477977
- 384141 string characters out of 5836999
+ 20863 strings out of 477977
+ 384611 string characters out of 5836999
  1867660 words of memory out of 5000000
- 40599 multiletter control sequences out of 15000+600000
+ 40610 multiletter control sequences out of 15000+600000
  524507 words of font info for 76 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  102i,12n,104p,3170b,1073s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (29 pages, 571189 bytes).
+Output written on main.pdf (29 pages, 591706 bytes).
 PDF statistics:
- 483 PDF objects out of 1000 (max. 8388607)
- 401 compressed objects within 5 object streams
- 91 named destinations out of 1000 (max. 500000)
- 139 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 487 PDF objects out of 1000 (max. 8388607)
+ 403 compressed objects within 5 object streams
+ 92 named destinations out of 1000 (max. 500000)
+ 144 words of extra memory for PDF output out of 10000 (max. 10000000)
 

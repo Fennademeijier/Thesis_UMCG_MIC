@@ -1237,6 +1237,10 @@ INPUT c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/publi
 INPUT c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/cm/cmti9.tfm
+INPUT ./figures//disease_incidence_ruling.png
+INPUT figures//disease_incidence_ruling.png
+INPUT ./figures//disease_incidence_ruling.png
+INPUT ./figures//disease_incidence_ruling.png
 INPUT ./text/methodology.tex
 INPUT text/methodology.tex
 INPUT ./text/methodology.tex

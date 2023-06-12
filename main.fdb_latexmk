@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1686579982 "main.aux" "main.bbl" "main" 1686579984 0
+["bibtex main"] 1686584914 "main.aux" "main.bbl" "main" 1686584916 0
   "./master_thesis.bib" 1686552183 14329 a61a4af20572a5b49fb5c83133aa88c7 ""
   "c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/bibtex/bst/base/apalike.bst" 1681892182 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "main.aux" 1686579984 14203 d347c81edda0f3a9dad785aca89d9b44 "pdflatex"
+  "main.aux" 1686584916 14477 e2b2e8044e93067c136a3c350c667f6d "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1686579982 "c:/Users/fennademeijier/Thesis/Thesis_UMCG_MIC/main.tex" "main.pdf" "main" 1686579984 0
+["pdflatex"] 1686584914 "c:/Users/fennademeijier/Thesis/Thesis_UMCG_MIC/main.tex" "main.pdf" "main" 1686584916 0
   "c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/jknappen/ec/ectt1000.tfm" 1681892186 1536 06717a2b50de47d4087ac0e6cd759455 ""
   "c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681892186 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1681892186 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -182,15 +182,16 @@
   "c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf-var/web2c/pdftex/pdflatex.fmt" 1681892192 6479087 142659249522b941eda6bf0e18963e6f ""
   "c:/Users/fennademeijier/AppData/Roaming/TinyTeX/texmf.cnf" 1681892218 956 e8ea9d34ffcfecb5310809d170b7f1a8 ""
   "c:/Users/fennademeijier/Thesis/Thesis_UMCG_MIC/main.tex" 1686552183 1946 efdabcbcbbf43a34c21a69c657726a84 ""
+  "figures//disease_incidence_ruling.png" 1686584274 25875 87cc2aaf856f3197038c4035b435c63a ""
   "figures/erasmus-logo.png" 1676453988 84867 b6e6cefc64170a6e878405426c76b662 ""
   "figures/umcg-logo.png" 1675106305 168406 db42dffd341e9456f75f0e6dde6af47d ""
-  "main.aux" 1686579984 14203 d347c81edda0f3a9dad785aca89d9b44 "pdflatex"
-  "main.bbl" 1686579982 9370 754f91ea23ea3a44791c451e15da3030 "bibtex main"
+  "main.aux" 1686584916 14477 e2b2e8044e93067c136a3c350c667f6d "pdflatex"
+  "main.bbl" 1686584914 9370 754f91ea23ea3a44791c451e15da3030 "bibtex main"
   "main.tex" 1686552183 1946 efdabcbcbbf43a34c21a69c657726a84 ""
-  "main.toc" 1686579984 1242 b4f24b3323681b24e5673abe3e691893 "pdflatex"
+  "main.toc" 1686584916 1242 087e91d00f2cbab6c144500a6f4d36c3 "pdflatex"
   "master_thesis.style.cls" 1686552183 17793 084eb425f9f19822e67bcb8b6ad44c79 ""
   "text/appendix.tex" 1686552183 6448 c333b0e5603f71cb973aaa49d78ba8fc ""
-  "text/data.tex" 1686579980 22818 5000e2aca13d9a6eeef71dcd99e1c13f ""
+  "text/data.tex" 1686584912 23887 1e087eda02573b4f178794895abc7fa7 ""
   "text/literature_review.tex" 1686570563 16096 f2a031d92888195b63af724633bca6d0 ""
   "text/methodology.tex" 1686569680 24729 d270e9b907a89c34e47642fd6397dbb7 ""
   (generated)

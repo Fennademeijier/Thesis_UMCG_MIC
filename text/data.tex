@@ -111,7 +111,16 @@ The follow-up structure of the data and the target requires a custom disease inc
     \label{table:data:example_long_format}
 \end{table}
 
-In this dataset, \textit{var1} is a constant variable and \textit{var2} is a time-varying variable. Given this format, individuals who have only participated in assessment 1a are excluded. Furthermore, participants that have a row where \textit{ass\_diff*} is larger than 2 are excluded. Including these participants would introduce too much uncertainty about the association between disease development and the time-varying covariates. Lastly, participants with too many missing variable are excluded, but this is discussed in section \ref{section:data:missing_data}.
+In this dataset, \textit{var1} is a constant variable and \textit{var2} is a time-varying variable. Given this format, individuals who have only participated in assessment 1a are excluded. Furthermore, participants that have a row where \textit{ass\_diff*} is larger than 2 are excluded. Including these participants would introduce too much uncertainty about the association between disease development and the time-varying covariates. Lastly, participants with too many missing variable are excluded, but this is discussed in section \ref{section:data:missing_data}. An overview of the custom disease incidence ruling discussed in this section can be found in figure \ref{fig:data:disease_incidence_ruling}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 0.7\textwidth]{disease_incidence_ruling.png}
+    \caption{Custom disease incidence ruling}
+    \label{fig:data:disease_incidence_ruling}
+  \end{figure}
+
+In this figure, participant 1 is right-censored because there is no disease that is on the shortlist of the target is developed during study. Participant 2 has disease development between assessments 1a and 1c. Therefore, the explanatory data is linked to assessment 1a, and disease incidence is set to assessment 1c. Similarly, participant 3 experiences disease development between assessments 2a and 3a. Disease incidence is set to the timepoint of assessment 3a, and the explanatory data associated with this incidence is linked to assessment 2a. Lastly, participant 4 is left-censored, because one or more of the diseases specified on the target shortlist had been developed before start of study. 
 
 \section{Feature selection and preprocessing}
 \label
