@@ -12,5 +12,5 @@
 \contentsline {section}{\numberline {3.3}Model estimation}{17}{section.20}%
 \contentsline {section}{\numberline {3.4}Regularization}{19}{section.21}%
 \contentsline {section}{\numberline {3.5}Model evaluation}{20}{section.22}%
-\contentsline {chapter}{\numberline {A}Appendix}{25}{appendix.24}%
-\contentsline {section}{\numberline {I}Lifelines data overview}{26}{section.25}%
+\contentsline {chapter}{\numberline {A}Appendix}{26}{appendix.24}%
+\contentsline {section}{\numberline {I}Lifelines data overview}{27}{section.25}%

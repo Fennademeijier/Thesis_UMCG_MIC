@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: apalike.bst
+Database file #1: master_thesis.bib
+Warning--empty journal in mack2018managing
+You've used 34 entries,
+            1935 wiz_defined-function locations,
+            697 strings with 11555 characters,
+and the built_in function-call counts, 14932 in all, are:
+= -- 1426
+> -- 809
+< -- 12
++ -- 296
+- -- 288
+* -- 1421
+:= -- 2644
+add.period$ -- 101
+call.type$ -- 34
+change.case$ -- 313
+chr.to.int$ -- 34
+cite$ -- 35
+duplicate$ -- 460
+empty$ -- 923
+format.name$ -- 335
+if$ -- 2805
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 31
+newline$ -- 172
+num.names$ -- 93
+pop$ -- 235
+preamble$ -- 1
+purify$ -- 313
+quote$ -- 0
+skip$ -- 352
+stack$ -- 0
+substring$ -- 1015
+swap$ -- 30
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 204
+warning$ -- 1
+while$ -- 112
+width$ -- 0
+write$ -- 436
+(There was 1 warning)

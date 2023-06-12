@@ -9,7 +9,7 @@ Exclusion criteria include severe psychiatric or physical illnes, a limited life
 
 \section{Healthspan}
 \label{section:data:healthspan_target} %shortlist voor nu: COPD, diabetes, stroke (kanker moet gesplits worden in type kanker), rest aanvullen
-The target of the time-to-event analysis conducted in this paper is the incidence age of first disease from a shortlift of selected diseases. This incidence age is defined as the healthspan, or disease-free survival time of an individual. The diseases on the shortlist are Chronic Obstructive Pulmonary Disease (COPD), stroke, diabetes, dementia and cancer. The diseases on the shortlist are selected based on a number of criteria. 
+The target of the time-to-event analysis conducted in this paper is the incidence age of first disease from a shortlift of selected diseases. This incidence age is defined as the healthspan, or disease-free survival time of an individual. The diseases on the shortlist are Chronic Obstructive Pulmonary Disease (COPD), stroke, diabetes, heart failure and cancer. The diseases on the shortlist are selected based on a number of criteria. 
 
 %1. They should be approximately (!!) equally severy, have the same impact on QoL. 
 %2. Global Burden of Disease \cite{GBD}
@@ -26,13 +26,15 @@ Firstly, the diseases are selected based on their chronic nature, their impact o
     Diabetes & 2.74\% (2.58\% - 2.87\%)                & 100\%                       \\
     COPD     & 5.8\% (5.19 \%- 6.27\%)                 & 79.15\% (76.00\% - 82.08\%) \\
     Neoplasms     & 17.83\% (16.87 \%- 18.55\%)                 & 44.16\% (41.04\% - 48.15\%) \\
-    Alzheimer's disease and other dimentias & 2.87\% (0.70\% - 7.51\%)               & 31.08\% (20.17\% - 44.20\%) 
+    Hypertensive heart disease & 0.85\% (0.64\% - 0.96\%)               & 100\%           \\
+    Rheumatic heart disease & 0.42\% (0.37\% - 0.48\%) &  22.97\% (16.03\% - 32.55\%)
     \end{tabular}
     \label{table:data:global_burden_of_disease}
 \end{table}
 %3. Nr of occurences / incidence / association with age 
 %4. Analyze prevalence before start of study 
-Secondly, the diseases are selected on their association with age and their prevalence and incidence numbers. The prevalence and incidence numbers of the diseases in Lifelines can be found in table \ref{table:data:disease_prevalence_incidence}. Moreover, all selected diseases strongly correlate with age. (correlatie coefficienten toevoegen).  
+Secondly, the diseases are selected on their association with age and their prevalence and incidence numbers. The prevalence and incidence numbers of the diseases in Lifelines can be found in table \ref{table:data:disease_prevalence_incidence}. 
+%Moreover, this table contains the Pearson correlation coefficient of the disease with  all selected diseases strongly correlate with age. (correlatie coefficienten toevoegen).  --> Pearson correlation is not well-suited for assessing the association between a continuous variable (age) and a binary variable (disease indicator). 
 \vspace{0.5cm}
 \begin{table} [H]
     \centering
@@ -44,7 +46,7 @@ Secondly, the diseases are selected on their association with age and their prev
     Diabetes           & 3527            & 1.91\%             \\
     COPD               & 7770            & 2.12\%              \\
     Cancer (all types) & 6628            & 2.63\%              \\
-    Dementia           & 18              & 0.10\%             
+    Heart failure           & 1039             & 1.61\%             
     \end{tabular}
     \label{table:data:disease_prevalence_incidence}
 \end{table} 
