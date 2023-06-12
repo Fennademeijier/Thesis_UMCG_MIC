@@ -10,12 +10,12 @@ h(t)=\lim _{\delta t \rightarrow 0} \frac{\operatorname{P}(t \leq T \leq t+\delt
 $$
 Additionally, the cumultive hazard function, $H(t)$ represents the accumulated risk up to time \textit{t}, and is defined as: $H(t) = \int_{0}^{t}h(u)du$. knowledge of any two of these functions enables the computation of the third function, as $S(t) = exp(-H(t))$ and $h(t) = \frac{-S'(t)}{S(t)}$. A thorough understanding of these functions is essential for the remainder of this section. 
 
-In the first part of this section, a comprehensive overview of the Cox Proportional Hazard (CPH) model and its time-varying variant, the Extended Cox model (ECM), is provided. In the second part, we discuss model estimation (what techniques we applied, the steps I took?) and model evaluation techniques. 
+In the first part of this section, a comprehensive overview of the Cox Proportional Hazard (CPH) model and its time-varying variant, the Extended Cox model (ECM), is provided. In the second part, we discuss model estimation, dimsensionality reduction and model evaluation techniques. 
 % And how to assess the proportional hazards assumption . If the assumption is violated, consider using extended survival models (e.g., time-varying covariates or stratification)
 
 \medskip
 \section{Cox Proportional Hazard Model}
-\label{section:data:CPH}
+\label{section:methodology:CPH}
 The CPH model is a \textit{regression} model that attempts to model the hazard rate $h(t|\mathbf{Z})$ as a function of time $t$ and the vector of covariates $\mathbf{Z}$. Mathematically, the CPH is represented by: 
 
 $$
@@ -32,7 +32,7 @@ The hazard ratio depends on covariates $z_1, ..., z_p$, but is independent of ti
 Violation results in biased and unreliable results, and can lead to misinterpretation of factors that influence survival. There are several approaches which address violation of the proportional hazard assumption, such as stratification or the use of time-dependent covariates. In stratified proportional hazard models, seperate Cox models are fit on different groups, which allows these groups to have a different baseline hazard. Another approach is to allow for time-varying covariates in a Cox model. This model, hereafter referred to as the \textit{Extended Cox Model} (ECM), allows the hazard ratios to vary over time and provides a more accurate assessment of the impact of time-varying covariates on the event of interest. This is the model that will be considered in this paper. 
 
 \section{Extended Cox Model (Cox's Time-varying Model)}
-\label{section:data:ecm}
+\label{section:methodology:ecm}
 The CPH model can be extended in such a way that it can incorporate covariates $Z_i(t)$ that change over time. This extension is possible because of the way the Cox model works: the current covariate values of the participant who had the event are compared to the current covatiate values of the participants who were at risk at that time. It is of great importance to clinical follow-up studies to be able include information that changes with time, as datasets usually include both baseline (time-independent) and time-dependent covariates. Mathematically, the ECM is represented by:  
 
 $$
@@ -42,22 +42,74 @@ In this formula, $\mathbf{Z}(t)$ is a vector of covariates, of which at least on
 
 $$\frac{h(t \mid \mathbf{Z_1}(t))}{h(t \mid \mathbf{Z_2}(t))} = \frac{b_0(t)}{b_0(t)} \cdot \frac{\exp(\mathbf{\beta}\mathbf{Z_1}(t))}{\exp(\mathbf{\beta}\mathbf{Z_2}(t))} = \exp(\mathbf{\beta} (\mathbf{Z_1}(t) - \mathbf{Z_2}(t) )) $$ 
 
-Note that the interpretation of the estimated coefficient of the constant covariate remains the same as in the CPH model; they represent the change in the hazard ratio associated with a unit change in the covariate. In contrast, the coefficients of the time-dependent covariates represent the instantaneous change in hazard ratio as a result of a unit change in the covariate \textit{at a particular timepoint}. % This difference shoudl be taken into account when intepreting the coefficients --> % Internal/ external covariates en waarom je niet moet doen wat ik ga doen: https://onlinelibrary.wiley.com/doi/full/10.1002/sim.8399
+Note that the interpretation of the estimated coefficient of the constant covariate remains the same as in the CPH model; they represent the change in the hazard ratio associated with a unit change in the covariate. In contrast, the coefficients of the time-dependent covariates represent the instantaneous change in hazard ratio as a result of a unit change in the covariate \textit{at a particular timepoint}. % This difference shoudl be taken into account when intepreting the coefficients --> % Internal/ external covariates en waarom je niet moet doen wat ik ga doen: https://onlinelibrary.wiley.com/doi/full/10.1002/sim.8399 dit stuk moet beter
 
 A practical disadvantage of the ECM is that prediction of survival curves and individual survival times is not trivial. This would require knowledge about the covariate values beyond the observed times, and these are not available. 
 
-%The package that is most commonly used for survival analysis is \textit{Survival} in R, and \textit{Lifelines} in Python. To use either of these packages, the dataset must be organized in a \textit{long} format, where each individual is represented by a unique \textit{project\_pseudo\_id} variable and each time interval is identified by \textit{start} and \textit{stop} variables. An example of this schema is shown in section \ref{section:data:disease_incidence_ruling_censoring}. 
+The package that is most commonly used for survival analysis is \textit{Survival} in R, and \textit{Lifelines} in Python. \textit{Lifelines} fits the Extended Cox Model model using iterative gradient descent. Model estimation is elaborated on in the next section. 
+
+%To use either of these packages, the dataset must be organized in a \textit{long} format, where each individual is represented by a unique \textit{project\_pseudo\_id} variable and each time interval is identified by \textit{start} and \textit{stop} variables. An example of this schema is shown in section \ref{section:data:disease_incidence_ruling_censoring}. 
 
 \section{Model estimation}
-\label{section:data:model_estimation}
-In the Extended Cox Model, the regression coefficients $\beta$ are estimated with the partial likelihood method. This likelihood is constructed with the observed event times and knowledge of the order in which the events occur. Suppose there are $N$ individuals and $D$ distinct event times. Let $(\tau_1, ..., \tau_D)$ be the $D$ ordered, distinct event times, assuming that there are no tied event times. For any timepoint $t \geq 0$, the risk set that defines the set of individuals at risk of an event at time $t$ is $R(t) := \{i \mid t_i \geq t\}$. Furthermore, let $i_j$ denote the identity of the participant experiencing the event at time $\tau_j$, and $H_j$ the history of the dataset up to the \textit{j}-th event time. The partial likelihood function can then be written as: 
+\label{section:methodology:model_estimation}
+% Hoe werkt dit nou precies? 
+% Gradient descent optimizing
+In the Extended Cox Model, the regression coefficients $\beta$ are estimated with the partial likelihood method. This likelihood is constructed with the observed event times and knowledge of the order in which the events occur. Suppose there are $N$ individuals and $D$ distinct event times. Let $(t_1, ..., t_D)$ be the $D$ ordered, distinct event times, assuming that there are no tied event times. For any timepoint $t \geq 0$, the risk set that defines the set of individuals at risk of an event at time $t$ is $R(t) := \{i \mid t_i \geq t\}$. Furthermore, let $i_j$ denote the identity of the participant experiencing the event at time $t_j$, and $H_j$ the history of the dataset up to the \textit{j}-th event time. Inference is made via the partial-likelihood: 
 
-$$L(\boldsymbol{\beta}) = \prod_{j=1}^{d}P(i_j | H_j) = \prod_{j=1}^{d} \frac{\exp(\boldsymbol{\beta}^T \mathbf{Z}_{ij}(\tau_j))}{\sum_{i \in R(\tau_j)} \exp(\boldsymbol{\beta}^T \mathbf{Z}_{i}(\tau_j))}$$
+$$L(\boldsymbol{\beta}) = \prod_{j=1}^{d}P(i_j | H_j) = \prod_{j=1}^{d} \frac{\exp(\boldsymbol{\beta}^T \mathbf{Z}_{i_j}(t_j))}{\sum_{i \in R(t_j)} \exp(\boldsymbol{\beta}^T \mathbf{Z}_{i}(t_j))}$$
 
-The regression coefficients $\boldsymbol{\beta}$ are estimated by maximizing the likelihood function $L(\boldsymbol{\beta})$. This likelihood function has some nice properties, and is equal to the likelihood function used in the CPH model with time-constant covariates. The only difference is that the values of $\textbf(Z)$ will vary over time and thus over risk sets. Conveniently, the likelihood function can be estimated with an unspecified baseline hazard, as it does not depend on $b_0$. The likelihood function also solely depends on the order of the events, and not on the specific event times. And lastly, right-censored individuals are only take into account in the risk set; resulting in an elegant incorporation of censored participants. 
+The regression coefficients $\boldsymbol{\beta}$ are estimated by maximizing the partial likelihood function $L(\boldsymbol{\beta})$. Moreover, the function can be altered to suit the case of tied event times. The partial likelihood function has some nice properties, and is equal to the likelihood function used in the CPH model with time-constant covariates. The only difference is that the values of $\textbf(Z)$ will vary over time and thus over risk sets. Conveniently, the partial likelihood function can be estimated with an unspecified baseline hazard, as it does not depend on $b_0$. The partial likelihood function also solely depends on the order of the events, and not on the specific event times. And lastly, right-censored individuals are only take into account in the risk set; resulting in an elegant incorporation of censored participants. 
+
+In Pythons' \textit{Lifelines}, an iterative gradient descent algorithm is deployed to find the optimal coefficients of the ECM. The negative log-partial likelihood function, which is the objective function that is minimized in the optimization task is: 
+$$-\ell(\boldsymbol{\beta}) = - \sum_{j=1}^{d} \left[ \boldsymbol{\beta}^T \mathbf{Z}_{i_j}(t_j) - \log\left(\sum_{i \in R(t_j)} \exp(\boldsymbol{\beta}^T \mathbf{Z}_{i}(t_j))\right) \right]$$ % checken!!! 
+
+Note that this function should be continuous, differentiabel and convex. In most cases, the negative log-partial likelihood is a strictly convex function, and thus has a unique local optimum. In the case of convergence issues, \textit{Lifelines} takes extra effort to help by giving specific warnings. 
+
+By taking the derivative with respect to $\beta$, we derive the \textit{gradient} of the objective function:
+$$ \nabla (-\ell(\boldsymbol{\beta})) = - \sum_{j=1}^{d} \left[\mathbf{Z}_{i_j}(t_j) - \frac{\sum_{i \in R(t_j)} \exp(\boldsymbol{\beta}^T \mathbf{Z}_{i}(t_j))\mathbf{Z}_{i}}{\sum_{i \in R(t_j)} \exp(\boldsymbol{\beta}^T \mathbf{Z}_{i}(t_j))} \right]$$
+
+% GRADIENT DESCENT
+The local minimum of the objective function is iteratively found by exploiting the gradient of the function around $\boldsymbol{\beta}$. Depending on the sign of the gradient, the approximated coefficients are updated in the direction that decreases the objective function $-\ell(\boldsymbol{\beta})$. An arbitrary starting point $\boldsymbol{\beta_n}$ is identified, which is sufficiently close to the minimum of $-\ell(\boldsymbol{\beta})$, a better approximation of $\boldsymbol{\beta}$ is computed by iterating over this formula: 
+$$\boldsymbol{\beta_{n+1}} = \boldsymbol{\beta_n} - \alpha \Delta (-\ell(\boldsymbol{\beta}))$$
+
+Gradient descent is parametric, as the learning rate ($\alpha$) specifies the magnitude of the iterative steps. The magnituse of alpha should be selected carefully to guarantee successful optimization. A too small $\alpha$ results in slow convergence, while a too large $\alpha$ may overshoot the minimum, causing the algorithm to diverge. Nevertheless, a small learning rate provides more precise updates, as the iterative steps are smaller. Optimal learning rate selection involves finding a trade-off between convergence speed, stability, and avoiding local optima.
+Gradient descent is the method that is applied by \textit{Lifelines} the the negative log-partial likelihood to find the ECM's regression coefficients. %HOE WORDT ALPHA GESCHAT DOOR LIFELINES
+
+
+% NEWTONS METHOD
+%The gradient is used in Newton's method to find the minimum of the objective function. Note that this gradient should be differentiable, as the second derivative of the objective function is used in the iterative function. Newthon's method finds the root of a function, in this case the negative log-partial likelihood. If the optimization problem satisfies the constraints of Newton's method, we can find $\boldsymbol{\beta}$ for which $\Delta (-\ell(\boldsymbol{\beta})) = 0$. Let $\Delta ' (-\ell(\boldsymbol{\beta}))$ be the derivative of the gradient with respect to $\beta$, and thus the second derivative of the objective function. An arbitrary starting point $\boldsymbol{\beta_n}$ is identified, which is sufficiently close to the minimum of $-\ell(\boldsymbol{\beta})$, a better approximation of $\boldsymbol{\beta}$ is computed by iterating over this formula: 
+%$$\boldsymbol{\beta_{n+1}} = \boldsymbol{\beta_n} + \frac{\Delta (-\ell(\boldsymbol{\beta}))}{\Delta ' (-\ell(\boldsymbol{\beta}))}$$
+
+%Newton's method is non-parametrics and finds a solution that is arbitrarily close to the true minimum of $-\ell(\boldsymbol{\beta})$ by iteratively updating the approximate optimum of the objective function. It is the method that is applied by \textit{Lifelines} the the negative log-partial likelihood to find the ECM's regression coefficients $\boldsymbol{\beta}$ 
+
+%When the algorithm encounters a stationary point, 
+
+\section{Regularization}
+\label{section:methodology:regularization}
+% ZIT DIT IN LIFELINES PACKAGE
+As introducted in the Data section, the feature space of Lifelines is not only reduced by means of feature selection, but also by regularization. The regularization techniques considered is elastic net, which is a combination of Lasso and Ridge regularization. Given the partial-likelihood equation in \ref{section:methodology:model_estimation}, the classical estimation case is when there are more participants than predictors ($N \gg p$). Based on the large number of participants in Lifelines, the classical case will most probably apply, and estimation of the coefficients will be trivial. However, we do take into account dimensionality reduction techniques that are proposed to combat the case when $p > N$. In such cases, there exists a collinearity problem when applying partial-likelihood estimation to the Cox model, which sends all the estimated coefficients to $ \pm \infty$. To reduce the feature space and avoid collinearity issues, elestic net regularization is applied to the ECM used in this paper. 
+
+Proposed by \cite{zou2005regularization}, elastic net combines the strengths of both the Lasso (L1) and Ridge (L2) penalties by incorporating a convex combination of the two. This allows for the simultaneous selection of relevant variables and shrinkage of coefficients. On the one hand, the Least Absolute Shrinkage Selector Operator (Lasso) adds a penalty equal to the absolute value of the magnitude of the coefficients multiplied by the L1-ratio. The mathematical form of the L1 penalty is: $\textit{L1-ratio} \cdot ||\boldsymbol{\beta}||_1$. This penalty eliminates some of the coefficients by reducing them to zero, hereby reducing the number of features. However, Lasso does not work well with collinearity issues.  It tends to randomly select either of the collinear covariates, which could lead to the elimination of relevant information. On the other hand, Ridge regularization adds the squared magnitude of the coefficients to the loss function multiplied by the L2-ratio. This penalty looks as follows: $\textit{L2-ratio} \cdot ||\boldsymbol{\beta}||^2_2$. This results in some coefficients that shrink towards. However, unlike Lasso regularization, Ridge will not shrink the coefficients to zero exactly, so these coefficients will not be eliminated. This could be disadvantageous when the objective is to reduce the feature space. Elastic net combines the strengths of Lasso and Ridge by simultaneously perform feature selection and coefficient regularization. In \textit{Lifelines}, the mathematical form of the Elastic Net regularization is: $\frac{1}{2}\textit{penalizer} ((1- \textit{L1-ratio}) \cdot ||\boldsymbol{\beta}||^2_2 + \textit{L1-ratio} \cdot ||\boldsymbol{\beta}||_1)$. Note that $\textit{L2-ratio} = 1 - \textit{L1-ratio}$ and that \textit{penalizer} and \textit{L2-ratio} are parameters that can be specified when fitting the \textit{CoxTimeVaryingFitter}. Increasing the \textit{penalizer} will result in a stronger elastic net effect, and a more sparse solution. By increasing the \textit{L1-ratio}, we can make the elastic net behave more like a Lasso penalty. Parameters for the elastic net are optimized by cross-validation or grid search, by optimizing for a specific evaluation metric. This evaluation metric is elaborated on in the next section. 
 
 \section{Model evaluation}
-\label{section:data:model_evaluation}
+\label{section:methodology:model_evaluation}
+The performance of the ECM that is deployed in this paper is assessed by time-dependent evaluation metrics, proposed by \cite{bansal2018tutorial}. In many medical scenarios, decision-making involves using updated patient information to forecast transitions in health status, such as, in our case, disease development. The objective is to utilize the patient's clinical characteristics to estimate the risk of an adverse event within a specific time frame and identify individuals at a high risk of experiencing such an event in the near future. As Lifelines contains participants' data of clinical follow-up assessments, the aim is to find prognostic factors that contribute to the high-risk profile of participants. Such participants can consequently be selected as candidates for more frequent monitoring of these prognostic factors. In this section, we elaborate on the performance evaluation method that is deployed to support this objective. 
+The ECM's time-varying performance is evaluated by the area under the time-dependent receiver operating characteristic (ROC) curve (AUC). A fundamental concept of the ECM is the time-varying risk set of participants. At any assessment time, the set of participants that are disease-free and thus at risk of the event can be divided into cases (participants who will experience the event) and controls (participants who have not yet experienced the event). Moreover, cases can be divided into incident and cumulative cases; the latter being our specification of interest. Cumulative cases are participants that develop disease over a specified period of time. The goal of the ECM is to be able to best distinguish cases from controls at any time point. However, the prognostic information of participants changes over time, and thus this discriminative accuracy changes over time. This requires the traditional diagnostics of sensitivity and specificity to be extended to a time-varying variant. By convention, larger values of markers are assumed to more indicative of disease development in the future. The sensitivity of a marker is the probability that it is positive in the case of disease development. This equals the true positive rate (TPR) in the context of classification errors. Specificity is the probability that the marker is negative or small in the case that disease is not developed. This equals one minus the false positive rate (1 - FPR). In the cumulative case with dynamic controls, these metrics are evaluated within some fixed time frame. The outcome is dichotomized at time \textit{t}, and cumulative cases C are defined as participants who have experienced the event before time \textit{t}, and dynamic controls D are participants who remain disease-free beyond time \textit{t}. Let \textit{T} denote survival time, ans \textit{s} the start time of the interval of interest. Then, for a specific threshold C and for a continuous marker M, the time-dependent sensitivity and specifitiy is : 
+
+$$\begin{array}{@{}rcl@{}} \text{sensitivity}^{C}(c|\text{start}=s, \text{stop}=t) &=& P(M > c | T \geq s, T \leq t) \\ \text{specificity}^{D}(c|\text{start}=s, \text{stop}=t) &=& P(M \leq c | T \geq s, T > t). \end{array}$$
+
+Based on these definitions, the time-dependent AUC for cumulative cases and dynamic controls is definited by:  
+
+$$AUC^{C/D}(s,t) = P(M_j > M_k | T_j \geq s, T_j \leq t, T_k \geq s, T_k > t)$$
+
+The $AUC^{C/D}(s,t)$ is the probability that a random participant who is a cumulative case has a larger marker value than a randomly selected dynamic control, under the assumption that both subjects are event free at time \textit{s}. 
+
+Instead of individual marker values 
+https://diagnprognres.biomedcentral.com/articles/10.1186/s41512-019-0057-6#Sec3
+https://academic.oup.com/bioinformatics/article/25/14/1775/225393
+
+
+%https://stats.stackexchange.com/questions/554350/how-to-interpret-time-varying-auc-for-survival-analysis sickit-survival package met dynamic auc??
 
 
 % Evaluation literature? 
@@ -66,3 +118,6 @@ The regression coefficients $\boldsymbol{\beta}$ are estimated by maximizing the
 
 
 % Internal/ external covariates en waarom je niet moet doen wat ik ga doen: https://onlinelibrary.wiley.com/doi/full/10.1002/sim.8399
+
+
+

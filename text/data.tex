@@ -9,12 +9,11 @@ Exclusion criteria include severe psychiatric or physical illnes, a limited life
 
 \section{Healthspan}
 \label{section:data:healthspan_target} %shortlist voor nu: COPD, diabetes, stroke (kanker moet gesplits worden in type kanker), rest aanvullen
-The target of the time-to-event analysis conducted in this paper is the incidence age of first disease from a shortlift of selected diseases. This incidence age is defined as the healthspan, or disease-free survival time of an individual. The diseases on the shortlist are selected based on a number of criteria. 
+The target of the time-to-event analysis conducted in this paper is the incidence age of first disease from a shortlift of selected diseases. This incidence age is defined as the healthspan, or disease-free survival time of an individual. The diseases on the shortlist are Chronic Obstructive Pulmonary Disease (COPD), stroke, diabetes, dementia and cancer. The diseases on the shortlist are selected based on a number of criteria. 
 
 %1. They should be approximately (!!) equally severy, have the same impact on QoL. 
 %2. Global Burden of Disease \cite{GBD}
-Firstly, the diseases are selected based on their chronic nature, their impact on an individual's ability to function, and their relatively equal effect on Health-related Quality of Life (HRQoL). Furthermore, selection criteria include that they are highly associated with mortality and have a high risk factor attribution according to the Global Burden of Disease \citep{GBD}. The Global Burden of Disease study is led by the Institute of Health Metrics and Evaluation at the University of Washington, and is the most comprehensive observational epidemiological study to date. It tracks mortality and morbidity in 204 countries and is an important tool for understanding the changing health challenges that exist in the world.
-Lastly, in the selection process, several clinical experts from the UMCG have been consulted. 
+Firstly, the diseases are selected based on their chronic nature, their impact on an individual's ability to function, and their relatively equal effect on Health-related Quality of Life (HRQoL).  They are highly associated with mortality and have a high risk factor attribution according to the Global Burden of Disease \citep{GBD}. All selected diseases adhere to this criterium, as can be seen in table \ref{table:data:global_burden_of_disease}. This table contains the metrics as well as an upper and lower confidence limit. The Global Burden of Disease study is led by the Institute of Health Metrics and Evaluation at the University of Washington, and is the most comprehensive observational epidemiological study to date. It tracks mortality and morbidity in 204 countries and is an important tool for understanding the changing health challenges that exist in the world.
 % sterker maken https://www.thelancet.com/lancet/visualisations/gbd-compare 
 \vspace{0.5cm}
 \begin{table}[H]
@@ -33,7 +32,7 @@ Lastly, in the selection process, several clinical experts from the UMCG have be
 \end{table}
 %3. Nr of occurences / incidence / association with age 
 %4. Analyze prevalence before start of study 
-Secondly, the diseases are selected on their association with age and their prevalence and incidence numbers. 
+Secondly, the diseases are selected on their association with age and their prevalence and incidence numbers. The prevalence and incidence numbers of the diseases in Lifelines can be found in table \ref{table:data:disease_prevalence_incidence}. Moreover, all selected diseases strongly correlate with age. (correlatie coefficienten toevoegen).  
 \vspace{0.5cm}
 \begin{table} [H]
     \centering
@@ -41,7 +40,7 @@ Secondly, the diseases are selected on their association with age and their prev
     \begin{tabular}{lll}
     \cline{1-3}
                        & Prevalent cases & Incidence percentage\\ \cline{1-3}
-    Stroke             &                 &                    \\
+    Stroke             & 1034            & 0.49\%                   \\
     Diabetes           & 3527            & 1.91\%             \\
     COPD               & 7770            & 2.12\%              \\
     Cancer (all types) & 6628            & 2.63\%              \\
@@ -50,15 +49,17 @@ Secondly, the diseases are selected on their association with age and their prev
     \label{table:data:disease_prevalence_incidence}
 \end{table} 
 
+Lastly, in the selection process, several clinical experts from the UMCG have been consulted. They agreed to the specified shortlist of diseases and actknowledge the power of using the defined healthspan target to study ageing. 
+
 \section{Data overview}
 \label{section:data:data_overview}
-The Lifelines cohort consists of 3 main assessments, and 4 intermediate assessments. Information on disease presence and development is collected through questionnaires. Baseline assessment 1a contains information on presence of a disease before start of study. Follow-up assessments 1b, 1c, 2a, 3a and 3b contain information on disease development since the last time a Lifelines questionnaire was filled in. This structure allows for determination of between what ages a disease has developed, based on the assessments that an individual participated in. Besides disease presence and development information, Lifelines contains extensive information on demographics, lifestyle, psychosocial aspects and haematological and biochemical measures.  The majority of the data is collected during the baseline assessment, referred to as assessment 1a. The subsequent main assessments, 2a and 3a, primarily contain follow-up information, which overlaps significantly with the baseline assessment 1a. On the other hand, the intermediate assessments, 1b, 1c, 2b, and 3b, include a smaller subset of information. An overview of the number of variables and overlapping variables before feature selection is provided in Table \ref{table:data:variable_overview_before_preprocessing}: 
+The Lifelines cohort consists of 3 main assessments, and 4 intermediate assessments. Information on disease presence and development is collected through questionnaires. Baseline assessment 1a contains information on presence of a disease before start of study. Follow-up assessments 1b, 1c, 2a, 3a and 3b contain information on disease development since the last time a Lifelines questionnaire was filled in. This structure allows for determination of between what ages a disease has developed, based on the assessments that an individual participated in. Besides disease presence and development information, Lifelines contains extensive information on demographics, lifestyle, psychosocial aspects and haematological and biochemical measures. The majority of the data is collected during the baseline assessment, referred to as assessment 1a. The subsequent main assessments, 2a and 3a, primarily contain follow-up information, which overlaps significantly with the baseline assessment 1a. The intermediate assessments, 1b, 1c, 2b, and 3b, include a smaller subset of information. An overview of the number of variables and overlapping variables before feature selection is provided in Table \ref{table:data:variable_overlap_before_preprocessing}: 
 
 \vspace{0.5cm}
 \begin{table} [H]
     \centering
     \caption{Overview of variables and overlap with baseline of all assessments}
-    \begin{tabular}{ccc}
+    \begin{tabular}{lll}
         \hline
         \multicolumn{1}{l}{Assessment} & \multicolumn{1}{l}{Nr of columns} & \multicolumn{1}{l}{Nr of overlapping columns with 1a} \\ \hline
         1a (*)                         & 2062                              & 2062                                                                      \\
@@ -75,7 +76,7 @@ The Lifelines cohort consists of 3 main assessments, and 4 intermediate assessme
         \item \hspace{1cm} * baseline assessment
         \item \hspace{1cm} ** merged with inner join
       \end{tablenotes}
-    \label{table:data:variable_overview_before_preprocessing}
+    \label{table:data:variable_overlap_before_preprocessing}
 \end{table}
 
 An overview of data that is collected through questionnaires and clinical visits can be found in the data catologue of Lifelines. An overview of the information collected in the baseline questionnaire can be found in Table \ref{table:appendix:data_overview_baselines}, and an overview of the measurements collected during the clinical visits can be found in Table \ref{table:appendix:data_overview_clinical_measures} in Appendix \ref{chap:appendix}. % Weet niet of dit stuk hier helemaal past? 
@@ -86,14 +87,13 @@ An overview of data that is collected through questionnaires and clinical visits
 In clinical studies where event status updates and covariates are collected during periodic follow-up assessments, censoring is very common. Generally, there are three variations; left-, right- and interval-censoring. Participants who have not developed a chronic disease before the end of the follow-up period are labeled as right-censored. Right censoring can either occur due to end-of-study or due to loss-to-follow-up. When a participant enters the study with a disease of interest already present, this is a case of left-censoring. Interval-censoring occurs when the event occurs inbetween two clinical assessments, and the exact time of incidence is unknown. It is assumed that censoring are non-informative about the event, regardless of the type of censoring. Left-censored individuals are not taken into account in the analysis, because it is impossible to evaluate the association of time-varying covariates with chronic disease incidence when the event has already occured. Moreover, the follow-up questions with which disease incidence is derermined are of the form: \textit{'Did the health problems listed below start since the last time you filled in a Lifelines questionnaire?'}. This question will inherently result in interval-censoring, because it does not provide the specific incidence time of disease. In addition, this question makes that disease incidence time is conditional on what assessments a participant took part in. 
 
 The follow-up structure of the data and the target requires a custom disease incidence ruling and covariate matching approach. Not all participants have participated in every assessment, and for some participants disease development information or covartiates are missing for some assessments. Moreover, besides a set of constant covariates, there are measures that will vary over time and consequently over assessments. The effect of both the constant and time-varying variables on the outcome will be assessed in this paper. In order to do so, given the aforementioned missingness of data and censoring, custom rules of exlusion and disease incidence determination are required. The dataset schema required for the time-varying Cox model is the \textit{long} format. This schema contains one row per successive assessment set, including an ID, left (exclusive) timepoint, right (exclusive) timepoint, explanatory variables and an event indicator. The explanatory data is linked to the left timepoint, or the left clinical assessment of the set. The event indicator is linked to the right timepoint. This means that the explanatory data that is collected at a particular assessment, is linked to the time between that assessment and the next assessment, and is associated with the event occuring between those assessments or not. This coding scheme assumes tht there is no interval-censoring. Furthermore, both age and time-on-study are included in the initial survival set, as well as an assessment and assessment difference indicator. This particular data structure allows for time-varying covariates. For example, the following example survival table in table \ref{table:data:example_long_format} tracks thee individuals:
-% RULING TBD
 \vspace{0.5cm}
 \begin{table} [H]
     \centering
     \caption{Long format example}
     \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|l|}
 \hline
-\textit{id} & \textit{start\_age} & \textit{stop\_age} & \textit{start} & \textit{stop} & \textit{var1} & \textit{var2} & \textit{assessment\_start} & \textit{assessment\_stop} & \textit{assessment\_diff*} & \textit{event} \\ \hline
+\textit{id} & \textit{start\_age} & \textit{stop\_age} & \textit{start} & \textit{stop} & \textit{var1} & \textit{var2} & \textit{ass\_start} & \textit{ass\_stop} & \textit{ass\_diff*} & \textit{event} \\ \hline
 1  & 54         & 56        & 0     & 2    & 1    & 0.1  & 1a                & 1b               & 1                & 0     \\ \hline
 1  & 56         & 57        & 2     & 3    & 1    & 0.2  & 1b                & 1c               & 1                & 0     \\ \hline
 1  & 57         & 59        & 3     & 5    & 1    & 0.4  & 1c                & 2a               & 1                & 0     \\ \hline
@@ -109,36 +109,27 @@ The follow-up structure of the data and the target requires a custom disease inc
     \label{table:data:example_long_format}
 \end{table}
 
-In this dataset, \textit{var1} is a constant variable and \textit{var2} is a time-varying variable. Given this format, individuals who have only participated in assessment 1a are excluded. Furthermore, participants that have a row where \textit{assessment\_diff*} is 3 are excluded. Including these participants would introduce too much uncertainty about when the association between disease development and the time-varying covariates. Lastly, participants with too many missing variable are excluded, but this is discussed in section \ref{section:data:missing_data}.
+In this dataset, \textit{var1} is a constant variable and \textit{var2} is a time-varying variable. Given this format, individuals who have only participated in assessment 1a are excluded. Furthermore, participants that have a row where \textit{ass\_diff*} is larger than 2 are excluded. Including these participants would introduce too much uncertainty about the association between disease development and the time-varying covariates. Lastly, participants with too many missing variable are excluded, but this is discussed in section \ref{section:data:missing_data}.
 
 \section{Feature selection and preprocessing}
-\label{section:data:feature_selection_and_preprocessing}
-Given the high-dimensional nature of Lifelines, variable selection is a fundamental step in the modelling process. A parsimonous model will increase interpretation, and is there preferred.  
-%https://www.researchgate.net/publication/228353562_An_Overview_on_Variable_Selection_ 
-%After feature selection and preprocessing... 
+\label
+{section:data:feature_selection_and_preprocessing}
+%Beter onderbouwen methodes variable selection / preprocessing 
+% convariates, factors, variables --> kiezen?? 
+Given the high-dimensional nature of Lifelines, variable selection is a fundamental step in the modelling process. A parsimonous model will increase interpretation, and is therefore preferred. Nonetheless, we want to take into account as much information as possible, as Lifelines encompasses a wide range of potential predictors. To achieve this, features are selected based on existing literature and their relevance to research hypotheses. Additionally, dimensionality reduction techniques are employed to further reduce the feature space, as elaborated in the Methodology (section \ref{chap:methodology}). Moreover, in preprocessing, the time-variablity of the variables is analysed, and decisions are made on whether to allow a feature to be dynamic or not. 
 
+In this study, features are selected based on a number of criteria. Predictors that are known to be associated with the risk of developing the diseases specified in the target are included in the analysis. The exclusion of such important factors will introduce omitted variable bias. Omitted variable bias entails that the model falsely attributes the effect of the omitted factors to the included variables. However, a certain amount of omitted variable bias is inevitable, as Lifelines is not an exhaustive study. Moreover, the presence of a feature in hypothesis automatically guarantees the inclusion of this feature in the analysis set. For example, it is hypothesized that the total amount of stress from long-term/chronic stressors experienced by the participant influences the development of disease. This factor is therefore included in the analysis set. 
+
+In preprocessing, the time-variability of variables is assessed, and dynamic or static transformations are performed accordingly. The only variable that is static in Lifelines is gender. However, there are more variables that we take into account as static in analysis. Whenever a variable barely changes over time, it is set to a single value per individual by means of mean imputation. Moreover, when the dynamic nature of a variable is not of interest, a static tranformation is applied, and the variable is considered a constant throughout analysis. In the end, this method will result in a set of time-varying covariates, and a set of constant baseline covariates. It is essential that the time-varying variables are available in as many assessments as possible, as the applied method does not allow for empty values. Given that the explanatory data is linked to the left timepoint, and that assessment 2b does not contain disease development information, the maximum number of time-varying variables depends on the overlap of assessments 1a, 1b, 1c, 2a and 3a. However, when a certain variable is missing or empty in one of the follow-up assessments, the information will be imputated by carrying forward the most recent available information. This technique is called the last observation carried forward (LOCF) method. For example, when a participants' body mass index (BMI) is available in assessments 1a, 1c and 2a, the BMI of assessment 1b and 3a will equal the BMI measured in assessment 1a and 2a respectively. This method, as described in \cite{liu2006incorporating}, is selected because it safeguards the sample size and it is easily implementable. In order to fit the model that is applied in this study knowledge of all selected features at every potential event time is required. The LOCF technique prevents exclusion of participants for which a part of this information is missing, and therefore reduces selection bias. Selection bias, which is a side effect of visit-specific missingness, occurs when the population of participants with incomplete information is different from the population of participants with complete information. The downside of this method is that it also introduces bias by discretizing and pulling forward of continuously changing features. However, we conclude that the advantages associated with the LOCF method outweigh the limitations. Hence, this method is applied in order to maximize the sample size and allow more boundless inclusion of time-dependent effects.  
+
+After feature selection and preprocessing, the remaining variable set will regularized further by the application of dimensionality reduction techniques. Hereafter they will be assessed on their significance and effect on the outcome. 
 
 \section{Missing data}
 \label{section:data:missing_data}
-%feature selection : why are some features selected? literature? correlation with age? 
+Missing data is a prevalent phenomenon in clinical follow-up studies, and refers to the absence of information for certain features or observations for participants in the study. Missing data can arise due to various reasons such as participant attrition, loss to follow-up, or incomplete data collection. The occurrence of missing data poses challenges for researchers and can potentially introduce biases and affect the validity and reliability of study findings.
 
+In clinical follow-up studies, missing data can be categorized into different types \citep{mack2018managing}. Missing Completely at Random (MCAR) refers to missingness that occurs randomly and independently of any observed or unobserved data. It is the considered to be the strongest and most unrealistic type of missingness. Missing at Random (MAR) implies that the probability of missingness is dependent on observed data, but not on the unobserved data. Lastly, Missing Not at Random (MNAR) occurs when the probability of missingness is related to both observed and unobserved data, leading to potentially biased estimates. In this study, it is assumed that the missing data is MAR. Under this assumption, bias can be mitigated by applying appropriate imputation techniques. 
 
-%what is average age to onset-of-dsease?
-\section{Censoring and choice of time-scale}
-\label{section:data:timescale_censoring}
-% Cencoring and choice of time-scale
-% Meer op cencoring? 
-\noindent Inherent to 
+To address the issue of missing data in this study, various methods can be applied. These include complete case analysis, where only participants with complete data are included in the analysis. However, this results in a loss of information and a reduced sample size. Another approach is to perform imputation, which involves filling in missing values using statistical techniques. As introduced in section \ref{section:data:feature_selection_and_preprocessing}, missing constant data is imputed by means of mean imputation, and missing time-varying data is imputed by means of the LOCF technique. However, to minimize potential bias, participants who have more than 70\% imputed data are excluded. More sophisticated imputation methods such as multiple imputation or maximum likelihood estimation are not considered in this study, as the aim of this study is to study factors associated to healthspan, and not to study data imputation techniques.  
 
-The Lifelines dataset has three main assessments. Chronic disease presence and incidence is self-reported in questionnaires. For each condition, presence is reported at the baseline assessment 1a, and incidence is reported at follow-up assessments 2a and 3a. The question on disease follow-up is formulated as 'did the health problems listed below start since the last time you filled in the lifelines questionnaire?'. 
-
-
-
-  
-
-
-
-Although survival analysis is designed to deal with estimation of right-censored data, it is important to understand the risks of underestimating the true survival time when ignoring right-censored individuals. 
-
-Another challenge inherent to duration is the choice of time-scale, especially in the analysis of large-scale health surveys where the interest is to find the association of risk factors with the development of a disease. In this case, either the time since the baseline survey (time-on-study), or age can be used as time-scale. %Papers on this 
-Kom et al. (1997) \cite{kom1997time} propose that age, with stratification for birth cohort effects, is the appropriate time scale in Cox proportional hazard regression models that analyze health data from longitudinal studies.  
+Altoghether, it is important to note that while these methods help mitigate biases associated with MAR data, they rely on the assumption that the missingness mechanism is correctly specified. Moreover, mean imputation and LOCF are not the optimal imputation methods for MAR data, so biases may still persist. However, these methods do address the missing data in this study, and they aim to reduce bias by optimizing the sample size. This will in turn help to draw accurate conclusions regarding the association between features of interest and human healthspan. 

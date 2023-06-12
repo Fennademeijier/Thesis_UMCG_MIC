@@ -217,7 +217,7 @@
 % TABLES
 
 \setlength{\tabcolsep}{5pt}			% Set space between columns in tables (default 5pt)
-\renewcommand{\arraystretch}{1.2} % Set space between rows in tables (default 1)
+\renewcommand{\arraystretch}{1.0} % Set space between rows in tables (default 1)
 \usepackage{booktabs}         % Pro table layouts with correct hline spacing/weights
 \usepackage{ctable}						% Nice tables
 \usepackage{multirow}
@@ -392,9 +392,8 @@
       \end{figure}
         
       {\huge \bf \@title \par}
-%      \vfill
-      % \vskip 10\p@
-      % {\bf \subtitle \par}
+      \vskip 10 \p@
+       {\bf \subtitle \par}
       \vskip 15 \p@
       {\normalsize by \par}
       \vskip 10 \p@
