@@ -80,14 +80,15 @@ Lifelines (2023).
 \newblock Lifelines.
 \newblock \url{https://www.lifelines.nl/}.
 
+\bibitem[Lifelines Data Catalogue, 2023]{LLdatacatalogue}
+Lifelines Data Catalogue (2023).
+\newblock Lldatacatalogue.
+\newblock \url{https://data-catalogue.lifelines.nl/}.
+
 \bibitem[Liu and Craig, 2006]{liu2006incorporating}
 Liu, Y. and Craig, B.~A. (2006).
 \newblock Incorporating time-dependent covariates in survival analysis using the lvar method.
 \newblock {\em Statistics in medicine}, 25(10):1729--1740.
-
-\bibitem[Mack et~al., 2018]{mack2018managing}
-Mack, C., Su, Z., and Westreich, D. (2018).
-\newblock Managing missing data in patient registries: addendum to registries for evaluating patient outcomes: a user’s guide.
 
 \bibitem[Marmot, 2005]{marmot2005social}
 Marmot, M. (2005).
@@ -149,10 +150,15 @@ Wikstr{\"o}m, K., Lindstr{\"o}m, J., Harald, K., Peltonen, M., and Laatikainen, 
 \newblock Clinical and lifestyle-related risk factors for incident multimorbidity: 10-year follow-up of finnish population-based cohorts 1982--2012.
 \newblock {\em European journal of internal medicine}, 26(3):211--216.
 
-\bibitem[World Health Organization, 2019]{WHO}
-World Health Organization (2019).
+\bibitem[World Health Organization, 2019a]{WHO}
+World Health Organization (2019a).
 \newblock Global health estimates : Life expectancy and leading causes of death and disability.
 \newblock \url{https://www.who.int/data/gho/data/themes/mortality-and-global-health-estimates}.
+
+\bibitem[World Health Organization, 2019b]{WorldHealthOrganization}
+World Health Organization (2019b).
+\newblock Who daly definition.
+\newblock \url{https://www.who.int/data/gho/indicator-metadata-registry/imr-details/158}.
 
 \bibitem[Zenin et~al., 2019]{zenin2019identification}
 Zenin, A., Tsepilov, Y., Sharapov, S., Getmantsev, E., Menshikov, L., Fedichev, P.~O., and Aulchenko, Y. (2019).
